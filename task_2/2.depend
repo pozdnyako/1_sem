@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1537832359 source:d:\users\admin\documents\github\1-sem-course\task_2\main.cpp
+	"StringArray.h"
+
+1537832448 d:\users\admin\documents\github\1-sem-course\task_2\stringarray.h
+	"info.h"
+
+1537832498 d:\users\admin\documents\github\1-sem-course\task_2\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<algorithm>
+
+1537832412 source:d:\users\admin\documents\github\1-sem-course\task_2\stringarray.cpp
+	"StringArray.h"
+

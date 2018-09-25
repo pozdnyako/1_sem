@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.14">
+  <compound refid="class_string_array" kind="class"><name>StringArray</name>
+    <member refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kind="variable"><name>data</name></member>
+    <member refid="class_string_array_1a558fa61c1054f886b728230fad035818" kind="variable"><name>data_size</name></member>
+    <member refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kind="variable"><name>text</name></member>
+    <member refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kind="variable"><name>string_size</name></member>
+    <member refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kind="variable"><name>n_strings</name></member>
+    <member refid="class_string_array_1a438db887b1aedf7854164e8522da6fad" kind="variable"><name>is_marked</name></member>
+    <member refid="class_string_array_1a332dc35eec0e0e0ee243eed963a48cb3" kind="variable"><name>is_data_loaded</name></member>
+    <member refid="class_string_array_1a289374a524ce95d470918c9978cb90c1" kind="variable"><name>NO_LETTER</name></member>
+    <member refid="class_string_array_1a02f4a1dc1bc63b44c4aeafe174b3b681" kind="function"><name>StringArray</name></member>
+    <member refid="class_string_array_1a7bf94fc2111c9c27c7c7c22e98ffbb5c" kind="function"><name>StringArray</name></member>
+    <member refid="class_string_array_1ae3d61d4f09029a9b803bf61fd3853929" kind="function"><name>StringArray</name></member>
+    <member refid="class_string_array_1af1fc945005ae8a218d30c3281e0b64bd" kind="function"><name>~StringArray</name></member>
+    <member refid="class_string_array_1af548aec5f0efc6bdcb85bbc9ff3314ae" kind="function"><name>scan</name></member>
+    <member refid="class_string_array_1a4b24347f36da4c591463d39ddbce1660" kind="function"><name>print</name></member>
+    <member refid="class_string_array_1acf2d98a2d86af02293de4bbe186b9f07" kind="function"><name>mark_text</name></member>
+    <member refid="class_string_array_1ada4afa2d4aa21a149cc4fa710c19d8fd" kind="function"><name>sort_text</name></member>
+    <member refid="class_string_array_1ac12898da93f759f656e3e450ffa1d881" kind="function"><name>clean_mem</name></member>
+    <member refid="class_string_array_1a38184dc0af4d596524871acafc79ae0c" kind="function"><name>sorter_alphabet</name></member>
+    <member refid="class_string_array_1a0abec5e876390258cf21629f4c6d0267" kind="function"><name>sorter_rhyme</name></member>
+    <member refid="class_string_array_1a456bec9d142bb84c81f38d1236d55a3a" kind="function"><name>delete_marking</name></member>
+    <member refid="class_string_array_1af64761062f918a25e4a4c65d4e4e5822" kind="function"><name>delete_data</name></member>
+  </compound>
+  <compound refid="info_8h" kind="file"><name>info.h</name>
+    <member refid="info_8h_1a29a27bf2a5c3b8bc5792d0ee3d3b7646" kind="function"><name>print_str</name></member>
+    <member refid="info_8h_1affbe19f2831d6a973c59047f90dff7b0" kind="function"><name>fprint_str</name></member>
+    <member refid="info_8h_1a761963d1368fcddd44dda33aeec194d3" kind="function"><name>scan_str_with_delete_and_new</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1a761963d1368fcddd44dda33aeec194d3" kind="function"><name>scan_str_with_delete_and_new</name></member>
+    <member refid="main_8cpp_1a191a5312560abfd1f18bf98946883447" kind="function"><name>print_str</name></member>
+    <member refid="main_8cpp_1a9c3397c8811b68e4eb57c53fb0421766" kind="function"><name>fprint_str</name></member>
+    <member refid="main_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="_string_array_8cpp" kind="file"><name>StringArray.cpp</name>
+  </compound>
+  <compound refid="_string_array_8h" kind="file"><name>StringArray.h</name>
+  </compound>
+</doxygenindex>

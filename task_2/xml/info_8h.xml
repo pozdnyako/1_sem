@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="info_8h" kind="file" language="C++">
+    <compoundname>info.h</compoundname>
+    <includes local="no">cmath</includes>
+    <includes local="no">cassert</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">cstdio</includes>
+    <includes local="no">cstring</includes>
+    <includes local="no">algorithm</includes>
+    <includedby refid="_string_array_8h" local="yes">StringArray.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>cmath</label>
+      </node>
+      <node id="2">
+        <label>cassert</label>
+      </node>
+      <node id="0">
+        <label>info.h</label>
+        <link refid="info_8h"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdio</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="5">
+        <label>cstring</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>info.h</label>
+        <link refid="info_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>StringArray.h</label>
+        <link refid="_string_array_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="10">
+        <label>StringArray.cpp</label>
+        <link refid="_string_array_8cpp"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="info_8h_1a29a27bf2a5c3b8bc5792d0ee3d3b7646" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool print_str</definition>
+        <argsstring>(int, char *)</argsstring>
+        <name>print_str</name>
+        <param>
+          <type>int</type>
+          <defname>str_size</defname>
+        </param>
+        <param>
+          <type>char *</type>
+          <defname>str</defname>
+        </param>
+        <briefdescription>
+<para>Print string. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">str_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of string </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>string to printing</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>sucsess</para></simplesect>
+<simplesect kind="note"><para>print string </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="info.h" line="17" column="1" bodyfile="main.cpp" bodystart="68" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="info_8h_1affbe19f2831d6a973c59047f90dff7b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool fprint_str</definition>
+        <argsstring>(int, char *, FILE **)</argsstring>
+        <name>fprint_str</name>
+        <param>
+          <type>int</type>
+          <defname>str_size</defname>
+        </param>
+        <param>
+          <type>char *</type>
+          <defname>str</defname>
+        </param>
+        <param>
+          <type>FILE **</type>
+          <defname>file</defname>
+        </param>
+        <briefdescription>
+<para>Print string to file. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">str_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of string </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>string to printing </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to file for printing</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>sucsess</para></simplesect>
+<simplesect kind="note"><para>print string to file </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="info.h" line="18" column="1" bodyfile="main.cpp" bodystart="87" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="info_8h_1a761963d1368fcddd44dda33aeec194d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool scan_str_with_delete_and_new</definition>
+        <argsstring>(const char *path, int *buf_size, char **buf)</argsstring>
+        <name>scan_str_with_delete_and_new</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>buf_size</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>buf</declname>
+        </param>
+        <briefdescription>
+<para>Input. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to path to input file </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">buf_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to size of file </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to data</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>sucsess</para></simplesect>
+<simplesect kind="note"><para>Delete buf and buf_size. Scan file to buf. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="info.h" line="19" column="1" bodyfile="main.cpp" bodystart="20" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Declaration and info file. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Yaroslav Pozndyak</para></simplesect>
+File with all standrad includes and decloration of the global functions </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="8"><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cassert&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdio&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstring&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_string_array" kindref="compound">StringArray</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="info_8h_1a29a27bf2a5c3b8bc5792d0ee3d3b7646" kindref="member">print_str</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="info_8h_1affbe19f2831d6a973c59047f90dff7b0" kindref="member">fprint_str</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*,<sp/>FILE**);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="info_8h_1a761963d1368fcddd44dda33aeec194d3" kindref="member">scan_str_with_delete_and_new</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*buf_size,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>*buf);</highlight></codeline>
+    </programlisting>
+    <location file="info.h"/>
+  </compounddef>
+</doxygen>

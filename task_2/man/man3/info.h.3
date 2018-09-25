@@ -1,0 +1,128 @@
+.TH "info.h" 3 "Tue Sep 25 2018" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+info.h \- Declaration and info file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cmath>\fP
+.br
+\fC#include <cassert>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <cstdio>\fP
+.br
+\fC#include <cstring>\fP
+.br
+\fC#include <algorithm>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBprint_str\fP (int, char *)"
+.br
+.RI "Print string\&. "
+.ti -1c
+.RI "bool \fBfprint_str\fP (int, char *, FILE **)"
+.br
+.RI "Print string to file\&. "
+.ti -1c
+.RI "bool \fBscan_str_with_delete_and_new\fP (const char *path, int *buf_size, char **buf)"
+.br
+.RI "Input\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Declaration and info file\&. 
+
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Yaroslav Pozndyak
+.RE
+.PP
+File with all standrad includes and decloration of the global functions 
+.SH "Function Documentation"
+.PP 
+.SS "bool fprint_str (int str_size, char * str, FILE ** file)"
+
+.PP
+Print string to file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstr_size\fP size of string 
+.br
+\fIstr\fP string to printing 
+.br
+\fIfile\fP pointer to file for printing
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+sucsess
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+print string to file 
+.RE
+.PP
+
+.SS "bool print_str (int str_size, char * str)"
+
+.PP
+Print string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstr_size\fP size of string 
+.br
+\fIstr\fP string to printing
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+sucsess
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+print string 
+.RE
+.PP
+
+.SS "bool scan_str_with_delete_and_new (const char * path, int * buf_size, char ** buf)"
+
+.PP
+Input\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP pointer to path to input file 
+.br
+\fIbuf_size\fP pointer to size of file 
+.br
+\fIbuf\fP pointer to data
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+sucsess
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+Delete buf and buf_size\&. Scan file to buf\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

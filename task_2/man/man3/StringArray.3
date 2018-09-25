@@ -1,0 +1,219 @@
+.TH "StringArray" 3 "Tue Sep 25 2018" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+StringArray \- Main class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <StringArray\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBStringArray\fP ()"
+.br
+.RI "Standrad constructor\&. "
+.ti -1c
+.RI "\fBStringArray\fP (char *\fBdata\fP)"
+.br
+.ti -1c
+.RI "\fBStringArray\fP (\fBStringArray\fP *)"
+.br
+.ti -1c
+.RI "\fB~StringArray\fP ()"
+.br
+.RI "Standrad destructor\&. "
+.ti -1c
+.RI "bool \fBscan\fP (const char *)"
+.br
+.RI "Scan data\&. "
+.ti -1c
+.RI "bool \fBprint\fP (const char *)"
+.br
+.RI "Print data\&. "
+.ti -1c
+.RI "bool \fBmark_text\fP ()"
+.br
+.RI "Mark data\&. "
+.ti -1c
+.RI "bool \fBsort_text\fP (int, int, bool(*sorter)(int, int, \fBStringArray\fP *))"
+.br
+.RI "Quicksorting\&. "
+.ti -1c
+.RI "bool \fBclean_mem\fP ()"
+.br
+.RI "Memory cleaner\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static bool \fBsorter_alphabet\fP (int, int, \fBStringArray\fP *)"
+.br
+.RI "Sorter by alphabet\&. "
+.ti -1c
+.RI "static bool \fBsorter_rhyme\fP (int, int, \fBStringArray\fP *)"
+.br
+.RI "Sorter by end of the strings by alphabet\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "char * \fBdata\fP"
+.br
+.RI "store data "
+.ti -1c
+.RI "int \fBdata_size\fP"
+.br
+.RI "size of data "
+.ti -1c
+.RI "char ** \fBtext\fP"
+.br
+.RI "pointers to begin of strings "
+.ti -1c
+.RI "int * \fBstring_size\fP"
+.br
+.RI "size of strings "
+.ti -1c
+.RI "int \fBn_strings\fP"
+.br
+.RI "number of strings "
+.ti -1c
+.RI "bool \fBis_marked\fP"
+.br
+.ti -1c
+.RI "bool \fBis_data_loaded\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBNO_LETTER\fP = \-1"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Main class\&. 
+
+This class store and chage data\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "bool StringArray::mark_text ()"
+
+.PP
+Mark data\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+sucsess
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+This function divides data to strings and changing '
+.br
+' and EOF to '\\0', makes array of pointers to begins of strings and array of size of strings 
+.RE
+.PP
+
+.SS "bool StringArray::print (const char * path)"
+
+.PP
+Print data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP path to file
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+sucsess 
+.RE
+.PP
+
+.SS "bool StringArray::scan (const char * path)"
+
+.PP
+Scan data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP path to file
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+sucsess 
+.RE
+.PP
+
+.SS "bool StringArray::sort_text (int first, int last, bool(*)(int, int, \fBStringArray\fP *) sorter)"
+
+.PP
+Quicksorting\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfirst\fP number of the first element 
+.br
+\fIlast\fP number of the last element 
+.br
+\fIsortrer\fP pointer to sorter function
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+is element number f should be after element number s 
+.RE
+.PP
+
+.SS "bool StringArray::sorter_alphabet (int f, int s, \fBStringArray\fP * a)\fC [static]\fP"
+
+.PP
+Sorter by alphabet\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP number of the first element 
+.br
+\fIs\fP number of the second element 
+.br
+\fIa\fP pointer to sortered \fBStringArray\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+is element number f should be after element number s 
+.RE
+.PP
+
+.SS "bool StringArray::sorter_rhyme (int f, int s, \fBStringArray\fP * a)\fC [static]\fP"
+
+.PP
+Sorter by end of the strings by alphabet\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIf\fP number of the first element 
+.br
+\fIs\fP number of the second element 
+.br
+\fIa\fP pointer to sortered \fBStringArray\fP
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+is element number f should be after element number s 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

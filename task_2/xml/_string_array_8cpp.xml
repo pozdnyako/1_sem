@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.14">
+  <compounddef id="_string_array_8cpp" kind="file" language="C++">
+    <compoundname>StringArray.cpp</compoundname>
+    <includes refid="_string_array_8h" local="yes">StringArray.h</includes>
+    <incdepgraph>
+      <node id="24">
+        <label>cmath</label>
+      </node>
+      <node id="25">
+        <label>cassert</label>
+      </node>
+      <node id="23">
+        <label>info.h</label>
+        <link refid="info_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>cstdio</label>
+      </node>
+      <node id="22">
+        <label>StringArray.h</label>
+        <link refid="_string_array_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>iostream</label>
+      </node>
+      <node id="21">
+        <label>StringArray.cpp</label>
+        <link refid="_string_array_8cpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>algorithm</label>
+      </node>
+      <node id="28">
+        <label>cstring</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+<para>String Array description. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Yaroslav Pozndyak</para></simplesect>
+File with a description of the class <ref refid="class_string_array" kindref="compound">StringArray</ref> </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="8"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_string_array_8h" kindref="compound">StringArray.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><ref refid="class_string_array_1a02f4a1dc1bc63b44c4aeafe174b3b681" kindref="member">StringArray :: StringArray</ref>()</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>:<ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>(NULL)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>,<ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref>(0)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>,<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>(NULL)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>,<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>(NULL)</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>,<ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>(0)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>,is_marked(false)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>,is_data_loaded(false){</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><ref refid="class_string_array_1a02f4a1dc1bc63b44c4aeafe174b3b681" kindref="member">StringArray :: StringArray</ref>(<ref refid="class_string_array" kindref="compound">StringArray</ref><sp/>*copy)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>:<ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>(NULL)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>,<ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref>(copy-&gt;<ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref>)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>,<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>(NULL)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>,<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>(NULL)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>,<ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>(copy-&gt;<ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>,is_marked(copy-&gt;is_marked)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>,is_data_loaded(copy-&gt;is_data_loaded)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref><sp/>=<sp/>0<sp/>+<sp/><ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref><sp/>=<sp/>0<sp/>+<sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[<ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref>];</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*[<ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>];</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[<ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>];</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref>;<sp/>i<sp/>++)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*(<ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref><sp/>+<sp/>i)<sp/>=<sp/>*(copy-&gt;<ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref><sp/>+<sp/>i);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>;<sp/>i<sp/>++)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[i]<sp/>=<sp/>(copy-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[i]<sp/>-<sp/>copy-&gt;<ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>)<sp/>+<sp/><ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[i]<sp/>=<sp/>copy-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[i];</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><ref refid="class_string_array_1af1fc945005ae8a218d30c3281e0b64bd" kindref="member">StringArray :: ~StringArray</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>delete_marking();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>delete_data();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>StringArray<sp/>::<sp/>delete_marking()<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!is_marked)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>;<sp/>i<sp/>++)<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[i]<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/><ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>is_marked<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>StringArray<sp/>::<sp/>delete_data()<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!is_data_loaded)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">[]<sp/><ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>is_data_loaded<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_string_array_1ac12898da93f759f656e3e450ffa1d881" kindref="member">StringArray :: clean_mem</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>delete_marking();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>delete_data();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_string_array_1af548aec5f0efc6bdcb85bbc9ff3314ae" kindref="member">StringArray :: scan</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(path<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>is_data_loaded<sp/>=<sp/><ref refid="info_8h_1a761963d1368fcddd44dda33aeec194d3" kindref="member">scan_str_with_delete_and_new</ref>(path,<sp/>&amp;<ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref>,<sp/>&amp;<ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>is_data_loaded;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_string_array_1a4b24347f36da4c591463d39ddbce1660" kindref="member">StringArray :: print</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*path)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(path<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>FILE<sp/>*output<sp/>=<sp/>fopen(path,<sp/></highlight><highlight class="stringliteral">&quot;w&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(output<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>;<sp/>i<sp/>++)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="info_8h_1affbe19f2831d6a973c59047f90dff7b0" kindref="member">fprint_str</ref>(<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[i],<sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[i],<sp/>&amp;output);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(output,<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>fclose(output);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_string_array_1acf2d98a2d86af02293de4bbe186b9f07" kindref="member">StringArray :: mark_text</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>delete_marking();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref>;<sp/>i<sp/>++)<sp/>{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>[i]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>||<sp/><ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>[i]<sp/>==<sp/>EOF)<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>[i]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref><sp/>++;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*[<ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>];</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">[<ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>];</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>str_counter<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>str_length<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[0]<sp/>=<sp/><ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/><ref refid="class_string_array_1a558fa61c1054f886b728230fad035818" kindref="member">data_size</ref><sp/>&amp;&amp;<sp/>str_counter<sp/>&lt;=<sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>;<sp/>i<sp/>++)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref>[i]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[str_counter]<sp/>=<sp/><ref refid="class_string_array_1a1b86e87f389149e5143a2d6e4cc5a464" kindref="member">data</ref><sp/>+<sp/>i<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[str_counter<sp/>-<sp/>1]<sp/>=<sp/>str_length;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>str_length<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>str_counter<sp/>++;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>str_length<sp/>++;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>is_marked<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_string_array_1a38184dc0af4d596524871acafc79ae0c" kindref="member">StringArray :: sorter_alphabet</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>f,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>s,<sp/><ref refid="class_string_array" kindref="compound">StringArray</ref><sp/>*a)<sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[f]<sp/>==<sp/>0<sp/>||<sp/>(a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[f]<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[s]<sp/>==<sp/>0))</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[s]<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>counter_f<sp/>=<sp/>0,<sp/>counter_s<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l_counter_f<sp/>=<sp/>0,<sp/>l_counter_s<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(counter_f<sp/>&lt;<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[f]<sp/>&amp;&amp;<sp/>counter_s<sp/>&lt;<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[s])<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(!((*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;z&apos;</highlight><highlight class="normal">)<sp/>||<sp/>(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;Z&apos;</highlight><highlight class="normal">)<sp/>||<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)){</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter_f<sp/>++;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(!((*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;z&apos;</highlight><highlight class="normal">)<sp/>||<sp/>(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;Z&apos;</highlight><highlight class="normal">)<sp/>||<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)){</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter_s<sp/>++;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(l_counter_f<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l_counter_f<sp/>=<sp/>NO_LETTER;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(l_counter_s<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l_counter_s<sp/>=<sp/>NO_LETTER;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l_counter_f<sp/>=<sp/>counter_f;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l_counter_s<sp/>=<sp/>counter_s;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&gt;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s))<sp/>{</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&lt;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s))<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter_f<sp/>++;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter_s<sp/>++;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(l_counter_f<sp/>==<sp/>NO_LETTER<sp/>||<sp/>(l_counter_f<sp/>==<sp/>NO_LETTER<sp/>&amp;&amp;<sp/>l_counter_s<sp/>==<sp/>NO_LETTER))</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(l_counter_s<sp/>==<sp/>NO_LETTER)</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>l_counter_f)<sp/>==<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>l_counter_s))<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_string_array_1a0abec5e876390258cf21629f4c6d0267" kindref="member">StringArray :: sorter_rhyme</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>f,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>s,<sp/><ref refid="class_string_array" kindref="compound">StringArray</ref><sp/>*a)<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[f]<sp/>==<sp/>0<sp/>||<sp/>(a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[f]<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[s]<sp/>==<sp/>0))</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[s]<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>counter_f<sp/>=<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[f]<sp/>-<sp/>1,<sp/>counter_s<sp/>=<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[s]<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>l_counter_f<sp/>=<sp/>counter_f,<sp/>l_counter_s<sp/>=<sp/>counter_s;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(counter_f<sp/>&lt;<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[f]<sp/>&amp;&amp;<sp/>counter_s<sp/>&lt;<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[s])<sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(!((*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;z&apos;</highlight><highlight class="normal">)<sp/>||<sp/>(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;Z&apos;</highlight><highlight class="normal">)<sp/>||<sp/>counter_f<sp/>&lt;<sp/>0)){</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter_f<sp/>--;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(!((*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;a&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;z&apos;</highlight><highlight class="normal">)<sp/>||<sp/>(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>&gt;=<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s)<sp/>&lt;=<sp/></highlight><highlight class="charliteral">&apos;Z&apos;</highlight><highlight class="normal">)<sp/>||<sp/>counter_s<sp/>&lt;<sp/>0)){</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter_s<sp/>--;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(counter_f<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(l_counter_f<sp/>==<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[f]<sp/>-<sp/>1)</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l_counter_f<sp/>=<sp/>NO_LETTER;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(counter_s<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(l_counter_s<sp/>==<sp/>a-&gt;<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[s]<sp/>-<sp/>1)</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l_counter_s<sp/>=<sp/>NO_LETTER;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l_counter_f<sp/>=<sp/>counter_f;</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>l_counter_s<sp/>=<sp/>counter_s;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&gt;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s))<sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>counter_f)<sp/>&lt;<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>counter_s))<sp/>{</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter_f<sp/>--;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter_s<sp/>--;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(l_counter_f<sp/>==<sp/>NO_LETTER<sp/>||<sp/>(l_counter_f<sp/>==<sp/>NO_LETTER<sp/>&amp;&amp;<sp/>l_counter_s<sp/>==<sp/>NO_LETTER))</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(l_counter_s<sp/>==<sp/>NO_LETTER)</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[f]<sp/>+<sp/>l_counter_f)<sp/>==<sp/>*(a-&gt;<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[s]<sp/>+<sp/>l_counter_s))<sp/>{</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_string_array_1ada4afa2d4aa21a149cc4fa710c19d8fd" kindref="member">StringArray :: sort_text</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>first,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>last,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>(*sorter)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/><ref refid="class_string_array" kindref="compound">StringArray</ref>*))<sp/>{</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(first<sp/>&gt;=<sp/>last)</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(first<sp/>&gt;=<sp/>0);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(first<sp/>&lt;<sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(last<sp/>&gt;=<sp/>0);</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(last<sp/>&lt;<sp/><ref refid="class_string_array_1a18ec3dfd7821f109f70c1dac7cfe040b" kindref="member">n_strings</ref>);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>left<sp/>=<sp/>first,<sp/>right<sp/>=<sp/>last;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pivot<sp/>=<sp/>left;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*pivot_t<sp/>=<sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[pivot];</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pivot_s<sp/>=<sp/><ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[pivot];</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(left<sp/>&lt;=<sp/>right)<sp/>{</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(sorter(right,<sp/>pivot,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>right<sp/>--;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(sorter(pivot,<sp/>left,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>left<sp/>++;</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(left<sp/>&lt;=<sp/>right)<sp/>{</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::swap(<ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[left],<sp/><ref refid="class_string_array_1a5621ffa5c0820d5ae4fd3efdd01d1877" kindref="member">text</ref>[right]);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::swap(<ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[left],<sp/><ref refid="class_string_array_1addfeab07921e618164636a654db5c3e6" kindref="member">string_size</ref>[right]);</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>left++;</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>right--;</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(first<sp/>&lt;<sp/>right)</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_string_array_1ada4afa2d4aa21a149cc4fa710c19d8fd" kindref="member">sort_text</ref>(first,<sp/>right,<sp/>sorter);</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(last<sp/>&gt;<sp/>left)</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_string_array_1ada4afa2d4aa21a149cc4fa710c19d8fd" kindref="member">sort_text</ref>(left,<sp/>last,<sp/>sorter);</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="350"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="StringArray.cpp"/>
+  </compounddef>
+</doxygen>
