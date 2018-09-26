@@ -47,7 +47,7 @@ StringArray :: StringArray(StringArray *copy)
 }
 
 /*!
-    \brief Standrad destructor
+    \brief Standard destructor
 */
 StringArray :: ~StringArray() {
     delete_marking();
@@ -86,6 +86,7 @@ bool StringArray :: delete_data() {
 
     if(data)
         delete[] data;
+    data = NULL;
 
     is_data_loaded = false;
 
@@ -149,10 +150,12 @@ bool StringArray :: mark_text() {
     n_strings = 0;
 
     for(int i = 0; i < data_size; i ++) {
+        if(data[i] == '\r') {
+            data[i] == '\0';
+        }
         if(data[i] == '\n' || data[i] == EOF) {
             data[i] = '\0';
             n_strings ++;
-
         }
     }
 
@@ -175,7 +178,6 @@ bool StringArray :: mark_text() {
             str_length ++;
         }
     }
-
     is_marked = true;
     return true;
 }
@@ -190,7 +192,7 @@ bool StringArray :: mark_text() {
     \return is element number f should be after element number s
 
 */
-bool StringArray :: sorter_alphabet(int f, int s, StringArray *a) {
+bool StringArray :: sorter_alphabet(int f, int s, const StringArray *a) {
     if(a->string_size[f] == 0 || (a->string_size[f] == 0 && a->string_size[s] == 0))
         return false;
     else if(a->string_size[s] == 0)
@@ -251,7 +253,7 @@ bool StringArray :: sorter_alphabet(int f, int s, StringArray *a) {
     \return is element number f should be after element number s
 
 */
-bool StringArray :: sorter_rhyme(int f, int s, StringArray *a) {
+bool StringArray :: sorter_rhyme(int f, int s, const StringArray *a) {
     if(a->string_size[f] == 0 || (a->string_size[f] == 0 && a->string_size[s] == 0))
         return false;
     else if(a->string_size[s] == 0)
@@ -261,10 +263,12 @@ bool StringArray :: sorter_rhyme(int f, int s, StringArray *a) {
     int l_counter_f = counter_f, l_counter_s = counter_s;
 
     while(counter_f < a->string_size[f] && counter_s < a->string_size[s]) {
-        while(!((*(a->text[f] + counter_f) >= 'a' && *(a->text[f] + counter_f) <= 'z') || (*(a->text[f] + counter_f) >= 'A' && *(a->text[f] + counter_f) <= 'Z') || counter_f < 0)){
+        while(!((*(a->text[f] + counter_f) >= 'a' && *(a->text[f] + counter_f) <= 'z') ||
+                (*(a->text[f] + counter_f) >= 'A' && *(a->text[f] + counter_f) <= 'Z') || counter_f < 0)){
             counter_f --;
         }
-        while(!((*(a->text[s] + counter_s) >= 'a' && *(a->text[s] + counter_s) <= 'z') || (*(a->text[s] + counter_s) >= 'A' && *(a->text[s] + counter_s) <= 'Z') || counter_s < 0)){
+        while(!((*(a->text[s] + counter_s) >= 'a' && *(a->text[s] + counter_s) <= 'z') ||
+                (*(a->text[s] + counter_s) >= 'A' && *(a->text[s] + counter_s) <= 'Z') || counter_s < 0)){
             counter_s --;
         }
 
@@ -312,7 +316,7 @@ bool StringArray :: sorter_rhyme(int f, int s, StringArray *a) {
     \return is element number f should be after element number s
 
 */
-bool StringArray :: sort_text(int first, int last, bool (*sorter)(int, int, StringArray*)) {
+bool StringArray :: sort_text(int first, int last, bool (*sorter)(int, int, const StringArray*)) {
     if(first >= last)
         return true;
 
@@ -345,6 +349,44 @@ bool StringArray :: sort_text(int first, int last, bool (*sorter)(int, int, Stri
         sort_text(first, right, sorter);
     if(last > left)
         sort_text(left, last, sorter);
+
+    return true;
+}
+
+/*!
+    \brief  generation sonnet
+
+    \param  [in]    quatrains_num               number of the quatrains
+
+    \return sucsess
+*/
+bool StringArray :: generate_sonnet(int quatrains_num) {
+    if(n_strings < DELTA_STRING * 2)
+        return false;
+
+    int *string_num = new int[quatrains_num * 4];
+
+    for(int i = 0; i < quatrains_num; i ++) {
+        string_num[i * 4 + 0] = rand() % (n_strings - DELTA_STRING * 2) + DELTA_STRING;
+        string_num[i * 4 + 2] = string_num[i * 4 + 0] + rand() % (DELTA_STRING * 2) - DELTA_STRING;
+        string_num[i * 4 + 1] = rand() % (n_strings - DELTA_STRING * 2) + DELTA_STRING;
+        string_num[i * 4 + 3] = string_num[i * 4 + 1] + rand() % (DELTA_STRING * 2) - DELTA_STRING;
+    }
+    char **n_text = new char*[quatrains_num * 4];
+    int *n_string_size = new int[quatrains_num * 4];
+
+    for(int i = 0; i < quatrains_num * 4; i ++) {
+        n_text[i] = text[string_num[i]];
+        n_string_size[i] = string_size[string_num[i]];
+    }
+
+    delete_marking();
+
+    n_strings = quatrains_num * 4;
+    text = n_text;
+    string_size = n_string_size;
+
+    delete[] string_num;
 
     return true;
 }
