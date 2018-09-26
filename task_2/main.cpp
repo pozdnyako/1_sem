@@ -19,7 +19,7 @@ long long get_file_size(FILE* *file) {
     fgetpos(*file, &cur_pos);
 
     fseek(*file, 0, SEEK_END);
-    int size = ftell(*file);
+    long long size = ftell(*file);
 
     fseek(*file, 0, cur_pos);
 
