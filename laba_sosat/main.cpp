@@ -1,4 +1,11 @@
-#include "info.h"
+#include <cmath>
+#include <cassert>
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <algorithm>
+#include <ctime>
+#include <cstdlib>
 
 long long get_file_size(FILE* *file) {
     assert(file != NULL);
