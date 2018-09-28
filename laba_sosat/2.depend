@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1538101281 source:d:\users\admin\documents\github\1_sem\1_sem\laba_sosat\main.cpp
+	"info.h"
+
+1538099623 d:\users\admin\documents\github\1_sem\1_sem\laba_sosat\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<ctime>
+	<cstdlib>
+
