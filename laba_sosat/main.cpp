@@ -173,9 +173,6 @@ void scan_data(const char* path, int **one, int* one_num, int **pair_1, int **pa
 }
 
 int main(int argc, char* argv[]) {
-    srand(time(NULL));
-    setlocale(LC_ALL, "Russian");
-
     char* path_input = "input/1.txt";
 
     int *one = NULL;
