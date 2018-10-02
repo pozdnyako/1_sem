@@ -92,10 +92,6 @@ void scan_data(const char* path, int **one, int* one_num, int **pair_1, int **pa
     int str_counter = 1;
     int str_length = 1;
 
-    free(*one);
-    free(*pair_1);
-    free(*pair_2);
-
     strings[0] = str;
 
     for(int i = 1; i < str_size && str_counter <= n_strings; i ++) {
@@ -132,13 +128,13 @@ void scan_data(const char* path, int **one, int* one_num, int **pair_1, int **pa
         }
     }
 
-    std::cout << pair_1 << " " << pair_2 << " " << *pair_num << std::endl;
+    std::cout << pair_1 << " " << pair_2 << " " << *pair_num << " " << sizeof(**pair_1) << " " << *pair_num * sizeof(**pair_1) << std::endl;
     if(*one_num > 0) {
-        *one = (int*)calloc(*one_num, sizeof(int));
+        *one = (int*)calloc(*one_num, sizeof(**one));
     }
     if(*pair_num > 0) {
-        *pair_1 = (int*)calloc(*pair_num, sizeof(int));
-        *pair_2 = (int*)calloc(*pair_num, sizeof(int));
+        *pair_1 = (int*)calloc(*pair_num, sizeof(**pair_1));
+        *pair_2 = (int*)calloc(*pair_num, sizeof(**pair_2));
     }
     std::cout << pair_1 << " " << pair_2 << " " << *pair_num << std::endl;
 
@@ -148,7 +144,6 @@ void scan_data(const char* path, int **one, int* one_num, int **pair_1, int **pa
         int num_digits = 0;
         int pair[2] = {0, 0};
         for(int j = 0; j < string_size[i]; j ++) {
-            std::cout << i << " " << j << std::endl;
             if((j == 0 && isdigit(*(strings[i] + j))) ||
                (j > 0 && isdigit(*(strings[i] + j)) && !isdigit(*(strings[i] + j - 1))) ) {
 
@@ -175,9 +170,9 @@ void scan_data(const char* path, int **one, int* one_num, int **pair_1, int **pa
 int main(int argc, char* argv[]) {
     char* path_input = "input/1.txt";
 
-    int *one = NULL;
-    int *pair_1 = NULL;
-    int *pair_2 = NULL;
+    int* one = NULL;
+    int* pair_1 = NULL;
+    int* pair_2 = NULL;
     std::cout << &(pair_1) << " " << &(pair_2) << std::endl;
     int one_num = 0, pair_num = 0;
     scan_data(path_input, &one, &one_num, &pair_1, &pair_2, &pair_num);

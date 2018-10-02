@@ -36,7 +36,7 @@ long long get_file_size(FILE* *file) {
 
     \note Delete buf and buf_size. Scan file to buf.
 */
-bool scan_str_with_delete_and_new(const char* path, int *buf_size, char* *buf) {
+bool scan_str_with_delete_and_new(const char* path, size_t *buf_size, char* *buf) {
     assert(path != NULL);
     assert(buf_size != NULL);
     assert(buf != NULL);
@@ -56,7 +56,7 @@ bool scan_str_with_delete_and_new(const char* path, int *buf_size, char* *buf) {
     *(*buf + length) = EOF;
 
     if(result != size ) {
-        printf("[ERROR] reading from %s error", path);
+        printf("[ERROR] reading from %s", path);
         return false;
     }
 
@@ -78,7 +78,7 @@ bool print_str(int str_size, char *str) {
     assert(str != NULL);
 
     for(int i = 0; i < str_size; i ++) {
-        printf("%c", str[i]);
+        printf("%c", *(str + i));
     }
     return true;
 }
@@ -93,13 +93,131 @@ bool print_str(int str_size, char *str) {
 
     \note print string to file
 */
-bool fprint_str(int str_size, char *str, FILE* *file) {
-    assert(str != NULL);
+bool fprint_str(M_str str, FILE* *file) {
+    assert(str.str != NULL);
 
-    for(int i = 0; i < str_size; i ++) {
-        fprintf(*file, "%c", str[i]);
-    }
+    fprintf(*file, "%s", str.str);
     return true;
+}
+
+int qsorter_alphabet(const void *f, const void *s) {
+    //std::cout << f << " " << s << std::endl;
+
+    char* str_f = ((M_str*)f)->str;
+    char* str_s = ((M_str*)s)->str;
+
+    int len_f = ((M_str*)f)->len;
+    int len_s = ((M_str*)s)->len;
+
+    //std::cout << len_f << " " << len_s << std::endl;
+
+    if(len_f == 0 || (len_f == 0 && len_s == 0))
+        return -1;
+    else if(len_s == 0)
+        return 1;
+
+    int counter_f = 0, counter_s = 0;
+    int l_counter_f = 0, l_counter_s = 0;
+
+    while(counter_f < len_f && counter_s < len_s) {
+        while(!((*(str_f + counter_f) >= 'a' && *(str_f + counter_f) <= 'z') || (*(str_f + counter_f) >= 'A' && *(str_f + counter_f) <= 'Z') || *(str_f + counter_f) == '\0')){
+            counter_f ++;
+        }
+        while(!((*(str_s + counter_s) >= 'a' && *(str_s + counter_s) <= 'z') || (*(str_s + counter_s) >= 'A' && *(str_s + counter_s) <= 'Z') || *(str_s + counter_s) == '\0')){
+            counter_s ++;
+        }
+
+        if(*(str_f + counter_f) == '\0') {
+            if(l_counter_f == 0)
+                l_counter_f = NO_LETTER;
+            break;
+        }
+        if(*(str_s + counter_s) == '\0') {
+            if(l_counter_s == 0)
+                l_counter_s = NO_LETTER;
+            break;
+        }
+
+        l_counter_f = counter_f;
+        l_counter_s = counter_s;
+
+        if(*(str_f + counter_f) > *(str_s + counter_s)) {
+            return 1;
+        } else if(*(str_f + counter_f) < *(str_s + counter_s)) {
+            return -1;
+        }
+
+        counter_f ++;
+        counter_s ++;
+    }
+    if(l_counter_f == NO_LETTER || (l_counter_f == NO_LETTER && l_counter_s == NO_LETTER))
+        return -1;
+    else if(l_counter_s == NO_LETTER)
+        return 1;
+    if(*(str_f + l_counter_f) == *(str_s + l_counter_s)) {
+        return -1;
+    }
+
+    assert(false);
+}
+
+int qsorter_rhyme(const void *f, const void *s) {
+    char* str_f = ((M_str*)f)->str;
+    char* str_s = ((M_str*)s)->str;
+
+    int len_f = ((M_str*)f)->len;
+    int len_s = ((M_str*)s)->len;
+
+    if(len_f == 0 || (len_f == 0 && len_s == 0))
+        return -1;
+    else if(len_s == 0)
+        return 1;
+
+    int counter_f = len_f - 1, counter_s = len_s - 1;
+    int l_counter_f = counter_f, l_counter_s = counter_s;
+
+    while(counter_f < len_f && counter_s < len_s) {
+        while(!((*(str_f + counter_f) >= 'a' && *(str_f + counter_f) <= 'z') ||
+                (*(str_f + counter_f) >= 'A' && *(str_f + counter_f) <= 'Z') || counter_f < 0)){
+            counter_f --;
+        }
+        while(!((*(str_s + counter_s) >= 'a' && *(str_s + counter_s) <= 'z') ||
+                (*(str_s + counter_s) >= 'A' && *(str_s + counter_s) <= 'Z') || counter_s < 0)){
+            counter_s --;
+        }
+
+        if(counter_f < 0) {
+            if(l_counter_f == len_f - 1)
+                l_counter_f = NO_LETTER;
+            break;
+        }
+        if(counter_s < 0) {
+            if(l_counter_s == len_s - 1)
+                l_counter_s = NO_LETTER;
+            break;
+        }
+
+        l_counter_f = counter_f;
+        l_counter_s = counter_s;
+
+        if(*(str_f + counter_f) > *(str_s + counter_s)) {
+            return 1;
+        } else if(*(str_f + counter_f) < *(str_s + counter_s)) {
+            return -1;
+        }
+
+        counter_f --;
+        counter_s --;
+    }
+    if(l_counter_f == NO_LETTER || (l_counter_f == NO_LETTER && l_counter_s == NO_LETTER))
+        return -1;
+    else if(l_counter_s == NO_LETTER)
+        return 1;
+    if(*(str_f + l_counter_f) == *(str_s + l_counter_s)) {
+        return -1;
+    }
+
+    assert(false);
 }
 
 /*!
@@ -190,13 +308,12 @@ int main(int argc, char* argv[]) {
     if(!is_marked)                      {    printf("[ERROR]\tmarking text\n");                                         return -1;  }
     printf("[COMPLETE]\tmarking text\n");
 
-
     StringArray str_a_alphabet(&str_a);
-    bool is_sorted_alphabet = str_a_alphabet.sort_text(0, str_a_alphabet.n_strings - 1, StringArray::sorter_alphabet);
+    bool is_sorted_alphabet = str_a_alphabet.sort_text(0, str_a_alphabet.n_strings - 1, qsorter_alphabet);
     if(!is_sorted_alphabet)             {   printf("[ERROR]\tsorting by alphabet\n");                                   return -1;  }
 
     StringArray str_a_rhyme(&str_a);
-    bool is_sorted_rhyme = str_a_rhyme.sort_text(0, str_a_rhyme.n_strings - 1, StringArray::sorter_rhyme);
+    bool is_sorted_rhyme = str_a_rhyme.sort_text(0, str_a_rhyme.n_strings - 1, qsorter_rhyme);
     if(!is_sorted_rhyme)                {  printf("[ERROR]\tsorting by alphabet from end\n");                           return -1;  }
 
     printf("[COMPLETE]\tsorting\n");

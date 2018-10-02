@@ -15,16 +15,15 @@
 class StringArray {
 public:
     StringArray();
-    StringArray(char *data);
     StringArray(StringArray*);
     ~StringArray();
 
     char *data;             ///< store data
-    int data_size;          ///< size of data
+    size_t data_size;       ///< size of data
 
-    char* *text;            ///< pointers to begin of strings
-    int *string_size;       ///< size of strings
-    int n_strings;          ///< number of strings
+    size_t n_strings;       ///< number of strings
+
+    M_str *strings;         ///< pointer to begins of strings and them lengths
 
     bool scan(const char*);
     bool print(const char *);
@@ -32,17 +31,14 @@ public:
 
     bool generate_sonnet(int);
 
-    bool sort_text(int, int, bool (*sorter)(int, int, const StringArray*));
+    bool sort_text(int, int, int (*sorter)(const void*, const void*));
 
     bool clean_mem();
-
-    static bool sorter_alphabet(int, int, const StringArray*);
-    static bool sorter_rhyme(int, int, const StringArray*);
+    bool memcopy(StringArray*);
 
     bool is_marked;         ///< is text marked - using for prevent deleting empty dynamic arrays text and string_size
     bool is_data_loaded;    ///< is text marked - using for prevent deleting empty dynamic array data
 
-    static const int NO_LETTER = -1;
     static const int DELTA_STRING = 11;
 
 private:
