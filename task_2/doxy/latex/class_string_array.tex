@@ -1,0 +1,173 @@
+\hypertarget{class_string_array}{}\section{String\+Array Class Reference}
+\label{class_string_array}\index{String\+Array@{String\+Array}}
+
+
+Main class.  
+
+
+
+
+{\ttfamily \#include $<$String\+Array.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_string_array_a02f4a1dc1bc63b44c4aeafe174b3b681}\label{class_string_array_a02f4a1dc1bc63b44c4aeafe174b3b681}} 
+\mbox{\hyperlink{class_string_array_a02f4a1dc1bc63b44c4aeafe174b3b681}{String\+Array}} ()
+\begin{DoxyCompactList}\small\item\em Standrad constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_array_ae3d61d4f09029a9b803bf61fd3853929}\label{class_string_array_ae3d61d4f09029a9b803bf61fd3853929}} 
+{\bfseries String\+Array} (\mbox{\hyperlink{class_string_array}{String\+Array}} $\ast$)
+\item 
+\mbox{\Hypertarget{class_string_array_af1fc945005ae8a218d30c3281e0b64bd}\label{class_string_array_af1fc945005ae8a218d30c3281e0b64bd}} 
+\mbox{\hyperlink{class_string_array_af1fc945005ae8a218d30c3281e0b64bd}{$\sim$\+String\+Array}} ()
+\begin{DoxyCompactList}\small\item\em Standard destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_string_array_af548aec5f0efc6bdcb85bbc9ff3314ae}{scan}} (const char $\ast$)
+\begin{DoxyCompactList}\small\item\em Scan data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_string_array_a4b24347f36da4c591463d39ddbce1660}{print}} (const char $\ast$)
+\begin{DoxyCompactList}\small\item\em Print data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_string_array_acf2d98a2d86af02293de4bbe186b9f07}{mark\+\_\+text}} ()
+\begin{DoxyCompactList}\small\item\em Mark data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_string_array_a5ece78845303559bcbbddac65fd43d0e}{generate\+\_\+sonnet}} (int)
+\begin{DoxyCompactList}\small\item\em generation sonnet \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_string_array_afd5f7bae579321f7c9dc48f8417f29e6}{sort\+\_\+text}} (int, int, int($\ast$sorter)(const void $\ast$, const void $\ast$))
+\begin{DoxyCompactList}\small\item\em Quicksorting. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_array_ac12898da93f759f656e3e450ffa1d881}\label{class_string_array_ac12898da93f759f656e3e450ffa1d881}} 
+bool \mbox{\hyperlink{class_string_array_ac12898da93f759f656e3e450ffa1d881}{clean\+\_\+mem}} ()
+\begin{DoxyCompactList}\small\item\em Memory cleaner. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_array_a19c573a7f0c267d9a24409a815caa64e}\label{class_string_array_a19c573a7f0c267d9a24409a815caa64e}} 
+bool {\bfseries memcopy} (\mbox{\hyperlink{class_string_array}{String\+Array}} $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_string_array_a1b86e87f389149e5143a2d6e4cc5a464}\label{class_string_array_a1b86e87f389149e5143a2d6e4cc5a464}} 
+char $\ast$ \mbox{\hyperlink{class_string_array_a1b86e87f389149e5143a2d6e4cc5a464}{data}}
+\begin{DoxyCompactList}\small\item\em store data \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_array_a78df6a7a88bb76cefed3cd469aa09788}\label{class_string_array_a78df6a7a88bb76cefed3cd469aa09788}} 
+size\+\_\+t \mbox{\hyperlink{class_string_array_a78df6a7a88bb76cefed3cd469aa09788}{data\+\_\+size}}
+\begin{DoxyCompactList}\small\item\em size of data \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_array_a96296abcd8e01d01f73efe92b4aef425}\label{class_string_array_a96296abcd8e01d01f73efe92b4aef425}} 
+size\+\_\+t \mbox{\hyperlink{class_string_array_a96296abcd8e01d01f73efe92b4aef425}{n\+\_\+strings}}
+\begin{DoxyCompactList}\small\item\em number of strings \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_array_a5dae54570e013eab403ee262d780e642}\label{class_string_array_a5dae54570e013eab403ee262d780e642}} 
+\mbox{\hyperlink{struct_m__str}{M\+\_\+str}} $\ast$ \mbox{\hyperlink{class_string_array_a5dae54570e013eab403ee262d780e642}{strings}}
+\begin{DoxyCompactList}\small\item\em pointer to begins of strings and them lengths \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_array_a438db887b1aedf7854164e8522da6fad}\label{class_string_array_a438db887b1aedf7854164e8522da6fad}} 
+bool \mbox{\hyperlink{class_string_array_a438db887b1aedf7854164e8522da6fad}{is\+\_\+marked}}
+\begin{DoxyCompactList}\small\item\em is text marked -\/ using for prevent deleting empty dynamic arrays text and string\+\_\+size \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_string_array_a332dc35eec0e0e0ee243eed963a48cb3}\label{class_string_array_a332dc35eec0e0e0ee243eed963a48cb3}} 
+bool \mbox{\hyperlink{class_string_array_a332dc35eec0e0e0ee243eed963a48cb3}{is\+\_\+data\+\_\+loaded}}
+\begin{DoxyCompactList}\small\item\em is text marked -\/ using for prevent deleting empty dynamic array data \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_string_array_a26f3f258c6a019accd8de894a7af797c}\label{class_string_array_a26f3f258c6a019accd8de894a7af797c}} 
+static const int {\bfseries D\+E\+L\+T\+A\+\_\+\+S\+T\+R\+I\+NG} = 11
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main class. 
+
+This class store and chage data. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_string_array_a5ece78845303559bcbbddac65fd43d0e}\label{class_string_array_a5ece78845303559bcbbddac65fd43d0e}} 
+\index{String\+Array@{String\+Array}!generate\+\_\+sonnet@{generate\+\_\+sonnet}}
+\index{generate\+\_\+sonnet@{generate\+\_\+sonnet}!String\+Array@{String\+Array}}
+\subsubsection{\texorpdfstring{generate\+\_\+sonnet()}{generate\_sonnet()}}
+{\footnotesize\ttfamily bool String\+Array\+::generate\+\_\+sonnet (\begin{DoxyParamCaption}\item[{int}]{quatrains\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+generation sonnet 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em quatrains\+\_\+num} & number of the quatrains\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sucsess 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_array_acf2d98a2d86af02293de4bbe186b9f07}\label{class_string_array_acf2d98a2d86af02293de4bbe186b9f07}} 
+\index{String\+Array@{String\+Array}!mark\+\_\+text@{mark\+\_\+text}}
+\index{mark\+\_\+text@{mark\+\_\+text}!String\+Array@{String\+Array}}
+\subsubsection{\texorpdfstring{mark\+\_\+text()}{mark\_text()}}
+{\footnotesize\ttfamily bool String\+Array\+::mark\+\_\+text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Mark data. 
+
+\begin{DoxyReturn}{Returns}
+sucsess
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function divides data to strings and changing \textquotesingle{}~\newline
+\textquotesingle{} and E\+OF to \textquotesingle{}\textbackslash{}0\textquotesingle{}, makes array of pointers to begins of strings and array of size of strings 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_string_array_a4b24347f36da4c591463d39ddbce1660}\label{class_string_array_a4b24347f36da4c591463d39ddbce1660}} 
+\index{String\+Array@{String\+Array}!print@{print}}
+\index{print@{print}!String\+Array@{String\+Array}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily bool String\+Array\+::print (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Print data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em path} & path to file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sucsess 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_array_af548aec5f0efc6bdcb85bbc9ff3314ae}\label{class_string_array_af548aec5f0efc6bdcb85bbc9ff3314ae}} 
+\index{String\+Array@{String\+Array}!scan@{scan}}
+\index{scan@{scan}!String\+Array@{String\+Array}}
+\subsubsection{\texorpdfstring{scan()}{scan()}}
+{\footnotesize\ttfamily bool String\+Array\+::scan (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Scan data. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em path} & path to file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sucsess 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_string_array_afd5f7bae579321f7c9dc48f8417f29e6}\label{class_string_array_afd5f7bae579321f7c9dc48f8417f29e6}} 
+\index{String\+Array@{String\+Array}!sort\+\_\+text@{sort\+\_\+text}}
+\index{sort\+\_\+text@{sort\+\_\+text}!String\+Array@{String\+Array}}
+\subsubsection{\texorpdfstring{sort\+\_\+text()}{sort\_text()}}
+{\footnotesize\ttfamily bool String\+Array\+::sort\+\_\+text (\begin{DoxyParamCaption}\item[{int}]{first,  }\item[{int}]{last,  }\item[{int($\ast$)(const void $\ast$, const void $\ast$)}]{sorter }\end{DoxyParamCaption})}
+
+
+
+Quicksorting. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em first} & number of the first element \\
+\hline
+\mbox{\tt in}  & {\em last} & number of the last element \\
+\hline
+\mbox{\tt out}  & {\em sortrer} & pointer to sorter function\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is element number f should be after element number s 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+2/\mbox{\hyperlink{_string_array_8h}{String\+Array.\+h}}\item 
+D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+2/\mbox{\hyperlink{_string_array_8cpp}{String\+Array.\+cpp}}\end{DoxyCompactItemize}

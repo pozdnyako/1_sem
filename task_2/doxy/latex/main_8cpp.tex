@@ -1,0 +1,160 @@
+\hypertarget{main_8cpp}{}\section{D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+2/main.cpp File Reference}
+\label{main_8cpp}\index{D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+2/main.\+cpp@{D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+2/main.\+cpp}}
+
+
+Main file.  
+
+
+{\ttfamily \#include \char`\"{}String\+Array.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long long \mbox{\hyperlink{main_8cpp_a417730d1dc59b7cf2e8ec6f790c44a08}{get\+\_\+file\+\_\+size}} (F\+I\+LE $\ast$$\ast$file)
+\item 
+bool \mbox{\hyperlink{main_8cpp_af834e586bd26e3783dbdbf53043fc378}{scan\+\_\+str\+\_\+with\+\_\+delete\+\_\+and\+\_\+new}} (const char $\ast$path, size\+\_\+t $\ast$buf\+\_\+size, char $\ast$$\ast$buf)
+\begin{DoxyCompactList}\small\item\em Input. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_a191a5312560abfd1f18bf98946883447}{print\+\_\+str}} (int str\+\_\+size, char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Print string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_acf8aa10c0163dce5351d6e52e2427581}{fprint\+\_\+str}} (\mbox{\hyperlink{struct_m__str}{M\+\_\+str}} str, F\+I\+LE $\ast$$\ast$file)
+\begin{DoxyCompactList}\small\item\em Print string to file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a6c10dd87bca10e8704e2eaa591cb901a}\label{main_8cpp_a6c10dd87bca10e8704e2eaa591cb901a}} 
+int {\bfseries qsorter\+\_\+alphabet} (const void $\ast$f, const void $\ast$s)
+\item 
+\mbox{\Hypertarget{main_8cpp_aab4675a254d61bec2618aeaaf771a4b6}\label{main_8cpp_aab4675a254d61bec2618aeaaf771a4b6}} 
+int {\bfseries qsorter\+\_\+rhyme} (const void $\ast$f, const void $\ast$s)
+\item 
+bool \mbox{\hyperlink{main_8cpp_aa9c53af360ead9a5827afd337aaf12f8}{use\+\_\+console\+\_\+arg}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, char $\ast$$\ast$path\+\_\+input, char $\ast$$\ast$path\+\_\+output\+\_\+alphabet, char $\ast$$\ast$path\+\_\+output\+\_\+rhyme, char $\ast$$\ast$path\+\_\+output\+\_\+standard, char $\ast$$\ast$path\+\_\+output\+\_\+sonnet, int $\ast$new\+\_\+sonnet\+\_\+length)
+\begin{DoxyCompactList}\small\item\em Use console arguments. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+int {\bfseries main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main file. 
+
+\begin{DoxyAuthor}{Author}
+Yaroslav Pozndyak
+\end{DoxyAuthor}
+Main file with main() and description of other global functions. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_acf8aa10c0163dce5351d6e52e2427581}\label{main_8cpp_acf8aa10c0163dce5351d6e52e2427581}} 
+\index{main.\+cpp@{main.\+cpp}!fprint\+\_\+str@{fprint\+\_\+str}}
+\index{fprint\+\_\+str@{fprint\+\_\+str}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{fprint\+\_\+str()}{fprint\_str()}}
+{\footnotesize\ttfamily bool fprint\+\_\+str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_m__str}{M\+\_\+str}}}]{str,  }\item[{F\+I\+LE $\ast$$\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+Print string to file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str\+\_\+size} & size of string \\
+\hline
+\mbox{\tt in}  & {\em str} & string to printing \\
+\hline
+\mbox{\tt in}  & {\em file} & pointer to file for printing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sucsess
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+print string to file 
+\end{DoxyNote}
+\mbox{\Hypertarget{main_8cpp_a417730d1dc59b7cf2e8ec6f790c44a08}\label{main_8cpp_a417730d1dc59b7cf2e8ec6f790c44a08}} 
+\index{main.\+cpp@{main.\+cpp}!get\+\_\+file\+\_\+size@{get\+\_\+file\+\_\+size}}
+\index{get\+\_\+file\+\_\+size@{get\+\_\+file\+\_\+size}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{get\+\_\+file\+\_\+size()}{get\_file\_size()}}
+{\footnotesize\ttfamily long long get\+\_\+file\+\_\+size (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$$\ast$}]{file }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em file} & pointer to used file\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size of the file in bites 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a191a5312560abfd1f18bf98946883447}\label{main_8cpp_a191a5312560abfd1f18bf98946883447}} 
+\index{main.\+cpp@{main.\+cpp}!print\+\_\+str@{print\+\_\+str}}
+\index{print\+\_\+str@{print\+\_\+str}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{print\+\_\+str()}{print\_str()}}
+{\footnotesize\ttfamily bool print\+\_\+str (\begin{DoxyParamCaption}\item[{int}]{str\+\_\+size,  }\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Print string. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em str\+\_\+size} & size of string \\
+\hline
+\mbox{\tt in}  & {\em str} & string to printing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sucsess
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+print string 
+\end{DoxyNote}
+\mbox{\Hypertarget{main_8cpp_af834e586bd26e3783dbdbf53043fc378}\label{main_8cpp_af834e586bd26e3783dbdbf53043fc378}} 
+\index{main.\+cpp@{main.\+cpp}!scan\+\_\+str\+\_\+with\+\_\+delete\+\_\+and\+\_\+new@{scan\+\_\+str\+\_\+with\+\_\+delete\+\_\+and\+\_\+new}}
+\index{scan\+\_\+str\+\_\+with\+\_\+delete\+\_\+and\+\_\+new@{scan\+\_\+str\+\_\+with\+\_\+delete\+\_\+and\+\_\+new}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{scan\+\_\+str\+\_\+with\+\_\+delete\+\_\+and\+\_\+new()}{scan\_str\_with\_delete\_and\_new()}}
+{\footnotesize\ttfamily bool scan\+\_\+str\+\_\+with\+\_\+delete\+\_\+and\+\_\+new (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{size\+\_\+t $\ast$}]{buf\+\_\+size,  }\item[{char $\ast$$\ast$}]{buf }\end{DoxyParamCaption})}
+
+
+
+Input. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em path} & pointer to path to input file \\
+\hline
+\mbox{\tt out}  & {\em buf\+\_\+size} & pointer to size of file \\
+\hline
+\mbox{\tt out}  & {\em buf} & pointer to data\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sucsess
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Delete buf and buf\+\_\+size. Scan file to buf. 
+\end{DoxyNote}
+\mbox{\Hypertarget{main_8cpp_aa9c53af360ead9a5827afd337aaf12f8}\label{main_8cpp_aa9c53af360ead9a5827afd337aaf12f8}} 
+\index{main.\+cpp@{main.\+cpp}!use\+\_\+console\+\_\+arg@{use\+\_\+console\+\_\+arg}}
+\index{use\+\_\+console\+\_\+arg@{use\+\_\+console\+\_\+arg}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{use\+\_\+console\+\_\+arg()}{use\_console\_arg()}}
+{\footnotesize\ttfamily bool use\+\_\+console\+\_\+arg (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{char $\ast$$\ast$}]{path\+\_\+input,  }\item[{char $\ast$$\ast$}]{path\+\_\+output\+\_\+alphabet,  }\item[{char $\ast$$\ast$}]{path\+\_\+output\+\_\+rhyme,  }\item[{char $\ast$$\ast$}]{path\+\_\+output\+\_\+standard,  }\item[{char $\ast$$\ast$}]{path\+\_\+output\+\_\+sonnet,  }\item[{int $\ast$}]{new\+\_\+sonnet\+\_\+length }\end{DoxyParamCaption})}
+
+
+
+Use console arguments. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em argc} & number of the argumnets \\
+\hline
+\mbox{\tt in}  & {\em argv} & array of arguments \\
+\hline
+\mbox{\tt out}  & {\em path\+\_\+input} & pointer to the string with path to input file \\
+\hline
+\mbox{\tt out}  & {\em path\+\_\+output\+\_\+alphabet} & pointer to the string with path to output file for sortered by alphabet text \\
+\hline
+\mbox{\tt out}  & {\em path\+\_\+output\+\_\+rhyme} & pointer to the string with path to output file for sortered by rhyme text \\
+\hline
+\mbox{\tt out}  & {\em path\+\_\+output\+\_\+standard} & pointer to the string with path to output file for standard text \\
+\hline
+\mbox{\tt out}  & {\em path\+\_\+output\+\_\+sonnet} & pointer to the string with path to outout file for sonnet 2.\+0 \\
+\hline
+\mbox{\tt out}  & {\em new\+\_\+sonnet\+\_\+length} & pointer to the length of the sonnet 2.\+0 on quatrains\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sucsess 
+\end{DoxyReturn}
