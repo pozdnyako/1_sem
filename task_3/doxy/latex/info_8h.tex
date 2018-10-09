@@ -1,0 +1,56 @@
+\hypertarget{info_8h}{}\section{D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+3/info.h File Reference}
+\label{info_8h}\index{D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+3/info.\+h@{D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+3/info.\+h}}
+
+
+Declaration and info file.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{info_8h_ad72dbcf6d0153db1b8d8a58001feed83}\label{info_8h_ad72dbcf6d0153db1b8d8a58001feed83}} 
+\#define {\bfseries D\+E\+B\+UG}
+\item 
+\mbox{\Hypertarget{info_8h_ae1649fc947ca37a86917a08354f48d1a}\label{info_8h_ae1649fc947ca37a86917a08354f48d1a}} 
+\#define {\bfseries P\+R\+I\+N\+TF}~printf
+\item 
+\mbox{\Hypertarget{info_8h_ac6f5fa51baadade14d222cc9caee68ae}\label{info_8h_ac6f5fa51baadade14d222cc9caee68ae}} 
+\#define {\bfseries g\+\_\+nm}(var)~\#var
+\item 
+\#define {\bfseries U\+N\+I\+T\+\_\+\+T\+E\+ST}(what,  ref)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Declaration and info file. 
+
+\begin{DoxyAuthor}{Author}
+Yaroslav Pozndyak
+\end{DoxyAuthor}
+File with all standrad includes, decloration of the struct \mbox{\hyperlink{struct_stack}{Stack}} and defining D\+E\+B\+U\+G\+I\+NG 
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{info_8h_a9d4634817f5aafecdafb817d54e0b4bd}\label{info_8h_a9d4634817f5aafecdafb817d54e0b4bd}} 
+\index{info.\+h@{info.\+h}!U\+N\+I\+T\+\_\+\+T\+E\+ST@{U\+N\+I\+T\+\_\+\+T\+E\+ST}}
+\index{U\+N\+I\+T\+\_\+\+T\+E\+ST@{U\+N\+I\+T\+\_\+\+T\+E\+ST}!info.\+h@{info.\+h}}
+\subsubsection{\texorpdfstring{U\+N\+I\+T\+\_\+\+T\+E\+ST}{UNIT\_TEST}}
+{\footnotesize\ttfamily \#define U\+N\+I\+T\+\_\+\+T\+E\+ST(\begin{DoxyParamCaption}\item[{}]{what,  }\item[{}]{ref }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{\(\backslash\)
+    int \_what = (int)what, \_ref = (\textcolor{keywordtype}{int})ref;\(\backslash\)
+    if(\_what != \_ref) \(\backslash\)
+        PRINTF(\textcolor{stringliteral}{"[FAILED]\(\backslash\)t%s = %d, expected %d\(\backslash\)n"}, #what, \_what, \_ref); \(\backslash\)
+    else\(\backslash\)
+        PRINTF(\textcolor{stringliteral}{"[PASSED]\(\backslash\)t%s = %d\(\backslash\)n"}, #what, \_what);\(\backslash\)
+    \}
+\end{DoxyCode}

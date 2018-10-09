@@ -1,0 +1,150 @@
+\hypertarget{_stack_8h}{}\section{D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+3/\+Stack.h File Reference}
+\label{_stack_8h}\index{D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+3/\+Stack.\+h@{D\+:/\+Users/\+Admin/\+Documents/\+Git\+Hub/1\+\_\+sem/1\+\_\+sem/task\+\_\+3/\+Stack.\+h}}
+
+
+Main file.  
+
+
+{\ttfamily \#include \char`\"{}info.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_stack}{Stack}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_stack}{Stack}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_stack_8h_a6892e90ee417adfb0c66aa7a49769895}\label{_stack_8h_a6892e90ee417adfb0c66aa7a49769895}} 
+\#define {\bfseries A\+S\+S\+E\+R\+T\+\_\+\+OK}(s)~if(!\mbox{\hyperlink{_stack_8h_a456b05ff21e4e6640c1a37d9f93f6da1}{Stack\+Ok}}(\&s)) \{\mbox{\hyperlink{_stack_8h_a6d877294b3bda902145000ae49ddcba6}{Stack\+Dumb}}(\&s, \#s); assert(0);\}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_stack_8h_ae3169c556a623145da202971c88751c6}{Stack\+Ctor}} (\mbox{\hyperlink{struct_stack}{Stack}} $\ast$, long long)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_stack}{Stack}} Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_stack_8h_a3a06852539d7f498c39d310aa67ac952}{Stack\+Dtor}} (\mbox{\hyperlink{struct_stack}{Stack}} $\ast$)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_stack}{Stack}} Destructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_stack_8h_a8ee9746c2568514514dcabd69c29cd7c}{Stack\+Push}} (\mbox{\hyperlink{struct_stack}{Stack}} $\ast$, int)
+\item 
+int \mbox{\hyperlink{_stack_8h_a521d66b4639d4b50e3e61ac7aab2b8df}{Stack\+Pop}} (\mbox{\hyperlink{struct_stack}{Stack}} $\ast$)
+\item 
+bool \mbox{\hyperlink{_stack_8h_a456b05ff21e4e6640c1a37d9f93f6da1}{Stack\+Ok}} (\mbox{\hyperlink{struct_stack}{Stack}} $\ast$)
+\item 
+void \mbox{\hyperlink{_stack_8h_a6d877294b3bda902145000ae49ddcba6}{Stack\+Dumb}} (\mbox{\hyperlink{struct_stack}{Stack}} $\ast$, const char $\ast$)
+\begin{DoxyCompactList}\small\item\em Print info about stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main file. 
+
+\begin{DoxyAuthor}{Author}
+Yaroslav Pozndyak
+\end{DoxyAuthor}
+File with description of the struct \mbox{\hyperlink{struct_stack}{Stack}} 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_stack_8h_ae3169c556a623145da202971c88751c6}\label{_stack_8h_ae3169c556a623145da202971c88751c6}} 
+\index{Stack.\+h@{Stack.\+h}!Stack\+Ctor@{Stack\+Ctor}}
+\index{Stack\+Ctor@{Stack\+Ctor}!Stack.\+h@{Stack.\+h}}
+\subsubsection{\texorpdfstring{Stack\+Ctor()}{StackCtor()}}
+{\footnotesize\ttfamily void Stack\+Ctor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack}{Stack}} $\ast$}]{s,  }\item[{long long}]{data\+\_\+capacity }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{struct_stack}{Stack}} Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em s} & pointer to stack that is constructing \\
+\hline
+\mbox{\tt in}  & {\em data\+\_\+capacity} & capacity of new stack\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+It allocate memory for stack 
+\end{DoxyNote}
+\mbox{\Hypertarget{_stack_8h_a3a06852539d7f498c39d310aa67ac952}\label{_stack_8h_a3a06852539d7f498c39d310aa67ac952}} 
+\index{Stack.\+h@{Stack.\+h}!Stack\+Dtor@{Stack\+Dtor}}
+\index{Stack\+Dtor@{Stack\+Dtor}!Stack.\+h@{Stack.\+h}}
+\subsubsection{\texorpdfstring{Stack\+Dtor()}{StackDtor()}}
+{\footnotesize\ttfamily void Stack\+Dtor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack}{Stack}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{struct_stack}{Stack}} Destructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em s} & pointer to stack that is destructing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+It clean memory for stack 
+\end{DoxyNote}
+\mbox{\Hypertarget{_stack_8h_a6d877294b3bda902145000ae49ddcba6}\label{_stack_8h_a6d877294b3bda902145000ae49ddcba6}} 
+\index{Stack.\+h@{Stack.\+h}!Stack\+Dumb@{Stack\+Dumb}}
+\index{Stack\+Dumb@{Stack\+Dumb}!Stack.\+h@{Stack.\+h}}
+\subsubsection{\texorpdfstring{Stack\+Dumb()}{StackDumb()}}
+{\footnotesize\ttfamily void Stack\+Dumb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack}{Stack}} $\ast$}]{s,  }\item[{const char $\ast$}]{nm }\end{DoxyParamCaption})}
+
+
+
+Print info about stack. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & pointer to stack that is printing \\
+\hline
+\mbox{\tt in}  & {\em nm} & name of the stack \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_stack_8h_a456b05ff21e4e6640c1a37d9f93f6da1}\label{_stack_8h_a456b05ff21e4e6640c1a37d9f93f6da1}} 
+\index{Stack.\+h@{Stack.\+h}!Stack\+Ok@{Stack\+Ok}}
+\index{Stack\+Ok@{Stack\+Ok}!Stack.\+h@{Stack.\+h}}
+\subsubsection{\texorpdfstring{Stack\+Ok()}{StackOk()}}
+{\footnotesize\ttfamily bool Stack\+Ok (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack}{Stack}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & pointer to stack that is checking\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is stack ok 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_stack_8h_a521d66b4639d4b50e3e61ac7aab2b8df}\label{_stack_8h_a521d66b4639d4b50e3e61ac7aab2b8df}} 
+\index{Stack.\+h@{Stack.\+h}!Stack\+Pop@{Stack\+Pop}}
+\index{Stack\+Pop@{Stack\+Pop}!Stack.\+h@{Stack.\+h}}
+\subsubsection{\texorpdfstring{Stack\+Pop()}{StackPop()}}
+{\footnotesize\ttfamily int Stack\+Pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack}{Stack}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em s} & pointer to stack which from the last element is removing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the last element value or -\/1 if stack is full
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Remove last elemenet from stack 
+\end{DoxyNote}
+\mbox{\Hypertarget{_stack_8h_a8ee9746c2568514514dcabd69c29cd7c}\label{_stack_8h_a8ee9746c2568514514dcabd69c29cd7c}} 
+\index{Stack.\+h@{Stack.\+h}!Stack\+Push@{Stack\+Push}}
+\index{Stack\+Push@{Stack\+Push}!Stack.\+h@{Stack.\+h}}
+\subsubsection{\texorpdfstring{Stack\+Push()}{StackPush()}}
+{\footnotesize\ttfamily int Stack\+Push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack}{Stack}} $\ast$}]{s,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em s} & pointer to stack which the value is pushing \\
+\hline
+\mbox{\tt in}  & {\em val} & value for pushing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if stack is full
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Push elemenet to stack 
+\end{DoxyNote}

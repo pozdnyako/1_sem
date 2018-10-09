@@ -19,13 +19,13 @@
 	<ctime>
 	<cstdlib>
 
-1539052995 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\main.cpp
+1539053200 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\main.cpp
 	"Stack.h"
 
-1539052737 d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.h
+1539055220 d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.h
 	"info.h"
 
-1539052999 d:\users\admin\documents\github\1_sem\1_sem\task_3\info.h
+1539053242 d:\users\admin\documents\github\1_sem\1_sem\task_3\info.h
 	<cmath>
 	<cassert>
 	<iostream>
@@ -35,6 +35,6 @@
 	<ctime>
 	<cstdlib>
 
-1539052375 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.cpp
+1539054617 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.cpp
 	"Stack.h"
 

@@ -3,7 +3,7 @@
     \brief Declaration and info file
     \author Yaroslav Pozndyak
 
-    File with all standrad includes and decloration of the global functions
+    File with all standrad includes, decloration of the struct Stack and defining DEBUGING
 */
 #include <cmath>
 #include <cassert>

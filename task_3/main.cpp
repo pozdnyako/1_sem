@@ -1,3 +1,11 @@
+/*!
+    \file
+    \brief Main file
+    \author Yaroslav Pozndyak
+
+    Main file with main()
+*/
+
 #include "Stack.h"
 
 int main(int argc, char* argv[]) {
