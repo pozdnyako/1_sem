@@ -344,10 +344,5 @@ int main(int argc, char* argv[]) {
 
     printf("[COMPLETE]\tprinting\n");
 
-    str_a.StringArray::~StringArray();
-    str_a_alphabet.StringArray::~StringArray();
-    str_a_rhyme.StringArray::~StringArray();
-    str_a_sonnet.StringArray::~StringArray();
-    printf("[COMPLETE]\tmem_cleaning\n");
     return 0;
 }

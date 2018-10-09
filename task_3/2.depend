@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1538103156 source:d:\users\admin\documents\github\1_sem\1_sem\laba_sosat\main.cpp
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<ctime>
+	<cstdlib>
+
+1538099623 d:\users\admin\documents\github\1_sem\1_sem\laba_sosat\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<ctime>
+	<cstdlib>
+
+1539052995 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\main.cpp
+	"Stack.h"
+
+1539052737 d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.h
+	"info.h"
+
+1539052999 d:\users\admin\documents\github\1_sem\1_sem\task_3\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<ctime>
+	<cstdlib>
+
+1539052375 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.cpp
+	"Stack.h"
+
