@@ -24,7 +24,7 @@ void StackCtor(Stack *s, long long data_capacity) {
         free(s->data);
     }
 
-    s->data = (int*)calloc(data_capacity, sizeof(int));
+    s->data = (stack_e*)calloc(data_capacity, sizeof(stack_e));
     s->data_capacity = data_capacity;
     s->data_size = 0;
 }
@@ -57,7 +57,7 @@ void StackDtor(Stack *s) {
 
     \note Push elemenet to stack
 */
-int StackPush(Stack *s, int val) {
+int StackPush(Stack *s, stack_e val) {
     ASSERT_OK(*s);
 
     if(!(s->data_size + 1 <= s->data_capacity)) {

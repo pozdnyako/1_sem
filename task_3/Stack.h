@@ -16,7 +16,7 @@
 struct Stack{
     long long data_size;                ///<It is the size of used part of the stack
     long long data_capacity;            ///<It is the size of the stack
-    int *data;                          ///<It is the pointer to the first element of data that is stored
+    stack_e *data;                          ///<It is the pointer to the first element of data that is stored
 
     static const int DATA_ERROR = -1;   ///<It is the constant for returning and data_capacity == DATA_ERROR if Stack isn't constructed.
 
@@ -29,8 +29,8 @@ struct Stack{
 
 void StackCtor(Stack*, long long);
 void StackDtor(Stack*);
-int StackPush(Stack*, int);
-int StackPop(Stack*);
+int StackPush(Stack*, stack_e);
+stack_e StackPop(Stack*);
 
 bool StackOk(Stack*);
 void StackDumb(Stack*, const char*);

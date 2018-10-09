@@ -14,6 +14,9 @@
 #include <ctime>
 #include <cstdlib>
 
+struct Stack;
+typedef int stack_e;
+
 #define DEBUG
 
 #if defined(DEBUG)
@@ -32,5 +35,3 @@
     else\
         PRINTF("[PASSED]\t%s = %d\n", #what, _what);\
     }
-
-struct Stack;
