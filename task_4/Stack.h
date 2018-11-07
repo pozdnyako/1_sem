@@ -5,7 +5,6 @@
 
     File with description of the struct Stack
 */
-
 #include "info.h"
 
 #define ASSERT_OK(s) if(!StackOk(&s)) {StackDump(&s, #s); assert(0);}
@@ -16,7 +15,7 @@
 struct Stack{
     long long data_size;                ///<It is the size of used part of the stack
     long long data_capacity;            ///<It is the size of the stack
-    stack_e *data;                    ///<It is the pointer to the first element of data that is stored
+    stack_e *data;                      ///<It is the pointer to the first element of data that is stored
 
     static const int DATA_ERROR = -1;   ///<It is the constant for returning and data_capacity == DATA_ERROR if Stack isn't constructed.
 

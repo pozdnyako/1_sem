@@ -260,17 +260,20 @@ bool use_console_arg(int argc, char* argv[], char* *path_input, char* *path_outp
     case 6:
         *path_input = argv[1];
         *path_output_alphabet = argv[2];
-        *path_output_rhyme = argv[3];
         *path_output_standard = argv[4];
         *path_output_sonnet = argv[5];
+        *path_output_rhyme = argv[3];
         break;
     default:
-        *path_input = argv[1];
-        *path_output_alphabet = argv[2];
-        *path_output_rhyme = argv[3];
-        *path_output_standard = argv[4];
-        *path_output_sonnet = argv[5];
-        *new_sonnet_length = atoi(argv[6]);
+        {
+        int arg = 1;
+        *path_input           =      argv[arg++];
+        *path_output_alphabet =      argv[arg++];
+        *path_output_rhyme    =      argv[arg++];
+        *path_output_standard =      argv[arg++];
+        *path_output_sonnet   =      argv[arg++];
+        *new_sonnet_length    = atoi(argv[arg++]);
+        }
         break;
     }
 
@@ -288,7 +291,7 @@ int main(int argc, char* argv[]) {
     char* path_output_standard = "output/standard.txt";
     char* path_output_sonnet = "output/sonnet2_0.txt";
 
-    int new_sonnet_length;
+    int new_sonnet_length = 0;
 
     use_console_arg(argc, argv, &path_input, &path_output_alphabet, &path_output_rhyme, &path_output_standard, &path_output_sonnet, &new_sonnet_length);
 
@@ -316,7 +319,9 @@ int main(int argc, char* argv[]) {
     bool is_sorted_rhyme = str_a_rhyme.sort_text(0, str_a_rhyme.n_strings - 1, qsorter_rhyme);
     if(!is_sorted_rhyme)                {  printf("[ERROR]\tsorting by alphabet from end\n");                           return -1;  }
 
-    printf("[COMPLETE]\tsorting\n");
+//  str_a_alphabet.sort_text(0, str_a_alphabet.n_strings - 1, qsorter_alphabet) || ({ return 4; 0; });
+
+    printf("[COMPLETE]\t" "sorting\n");
 
     printf("[INPUT]\twirte a length of the new sonnet in quatrains: ");
     scanf("%d", &new_sonnet_length);

@@ -9,7 +9,7 @@
 #include "Stack.h"
 
 int main(int argc, char* argv[]) {
-    Stack s;
+    Stack s = {};
     int s_cap = 3;
 
 

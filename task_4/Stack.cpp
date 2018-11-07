@@ -19,10 +19,7 @@
 void StackCtor(Stack *s, long long data_capacity) {
     assert(s);
 
-    if(s->data) {
-        printf("[ERROR] data isn't NULL in StackCtor(Stack*, long long)\n"); ///--------- assert
-        free(s->data);
-    }
+    assert(!s->data);
 
     s->data = (stack_e*)calloc(data_capacity, sizeof(stack_e));
     s->data_capacity = data_capacity;
@@ -76,7 +73,7 @@ int StackPush(Stack *s, stack_e val) {
 
     \note Remove last elemenet from stack
 */
-int StackPop(Stack* s) {
+stack_e StackPop(Stack* s) {
     ASSERT_OK(*s);
 
     if(!(s->data_size > 0)) {
@@ -85,7 +82,7 @@ int StackPop(Stack* s) {
 
     s->data_size --;
 
-    int val = *(s->data + s->data_size);
+    stack_e val = *(s->data + s->data_size);
     *(s->data + s->data_size) = 0;
 
     ASSERT_OK(*s);
@@ -112,7 +109,7 @@ bool StackOk(Stack *s) {
     \param  [in]    nm                  name of the stack
 */
 void StackDump(Stack *s, const char* nm) {
-    printf("Stack %s[%p] ", nm, s);
+    printf("\tStack %s[%p] ", nm, s);
 
     if(StackOk(s))
         printf("(OK)");
@@ -120,12 +117,12 @@ void StackDump(Stack *s, const char* nm) {
         printf("(ERROR)");
 
     if(s->data) {
-        printf("\n{\n\tcapacity\t = %lld\n\tsize\t\t = %lld\n\tdata[%lld]:[%p]\n\t{\n", s->data_capacity, s->data_size, s->data_capacity, s->data);
+        printf("\n\t{\n" "\t\tcapacity\t = %lld\n" "\t\tsize\t\t = %lld\n" "\t\tdata[%lld]:[%p]\n" "\t\t{\n", s->data_capacity, s->data_size, s->data_capacity, s->data);
         for(long long i = 0; i < s->data_capacity; i ++) {
-            printf("\t\t*[%lld]\t = %d \n", i, *(s->data + i));
+            printf("\t\t\t*[%lld]\t = %f\n", i, (float)*(s->data + i));
         }
-        printf("\t}\n}\n");
+        printf("\t\t}\n" "\t}\n");
     } else {
-        printf("\n{\n\tcapacity\t = %lld\n\tsize\t\t = %lld\n\tdata[%lld]:[%p]\n}\n", s->data_capacity, s->data_size, s->data_capacity, s->data);
+        printf("\n{\n\\ttcapacity\t = %lld\n\tsize\t\t = %lld\n\tdata[%lld]:[%p]\n}\n", s->data_capacity, s->data_size, s->data_capacity, s->data);
     }
 }

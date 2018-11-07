@@ -1,0 +1,64 @@
+##		MAIN		##
+	in 	
+	
+	rpush RAX
+		#reg N
+	rpop RAX
+	push 1
+		#stk N 0		
+	ja N<=0
+	
+	rpop RAX
+	push 3
+	ja N<=2
+	
+	push 3
+	push 1
+	push 1
+	rpush RAY
+	rpush RAZ
+	rpush RAA	
+	lbl for_b
+	rpop RAA
+	rpop RAX
+	je for_e
+	
+	rpop RAA
+	push 1
+	add
+	rpush RAA
+	
+	rpop RAZ
+	rpop RAZ
+	rpop RAY
+	add
+	rpush RAZ
+	rpush RAY
+	
+	jmp for_b
+	
+	lbl to_main
+	out	
+end
+#END END END END END END END END#
+#		N<=0		#
+	lbl N<=0
+	
+	push -1
+	jmp to_main
+#END END END END END END END END#
+#		N<=2		#
+	lbl N<=2
+	push 1
+	jmp to_main
+#END END END END END END END END#
+#		for_e		#
+	lbl for_e
+	
+	rpop RAZ
+	rpop RAY
+	add
+	
+	jmp to_main
+#END END END END END END END END
+ÿø.”®Ù

@@ -1,0 +1,285 @@
+##-------	MAIN		##
+		#in a
+	in
+			#stk a
+			#reg 0 0 0 0 0
+
+	#in b
+
+	in
+			#stk a b
+			#reg 0 0 0 0 0
+
+	in
+			#stk a b c
+			#reg 0 0 0 0 0
+
+	rpush RAZ
+			#stk a b
+			#reg 0 0 c 0 0
+
+	rpush RAY
+			#stk a
+			#reg 0 b c 0 0
+
+	rpush RAX
+			#stk 
+			#reg a b c 0 0
+	rpop RAX
+			#stk a
+	push 0
+			#stk a 0
+
+	je a=0
+	jmp a!=0
+		#if (a == 0)	jumb to a=0 
+		#else 		jump to a!=0
+	
+	lbl to_main
+
+	rpush RAA
+
+	rpop RAA
+	push 0
+	je out0
+
+	rpop RAA
+	push -1
+	je out-1
+
+	rpop RAA
+	push 1
+	je out1
+
+	rpop RAA
+	push 2
+	je out2
+
+	push -1488
+	out
+
+	lbl main_end
+
+end
+#END END END END END END END END#
+
+
+#-------	A=0		#
+	lbl a=0
+
+	rpop RAY
+	push 0
+	je a=0&b=0
+	jmp a=0&b!=0
+	#	#if(b == 0)	jump to a=0&b=0
+	#	#else	
+	lbl to_a=0
+
+	jmp to_main
+#END END END END END END END END#
+
+
+#		A!=0		#
+	lbl a!=0
+	
+	push 4
+	rpop RAX
+	rpop RAZ
+		#stk ... 4 a c
+	mul
+	mul
+	
+	rpop RAY
+	rpop RAY
+		#stk ... 4ac b b
+	mul
+		#stk ... 4ac b*b
+	
+	sub
+	
+	rpush RAB
+		#stk ...
+
+	rpop RAB
+	push 0
+	ja D<0
+	
+	rpop RAB
+	push 0
+	je D=0
+	
+	jmp D>0
+	
+	lbl to_a!=0
+	
+	jmp to_main
+#END END END END END END END END#
+
+#		D<0		#
+	lbl D<0
+
+	push 0
+	
+	jmp to_a!=0
+#END END END END END END END END#
+
+
+#		D=0		#
+	lbl D=0
+	
+	rpop RAY
+	rpop RAX
+	push -2
+		#stk ... b a -2	
+	mul
+		#stk ... b -2a
+	div
+		#stk ... -b/2a
+	
+	push 1
+
+	jmp to_a!=0
+#END END END END END END END END#
+
+
+#		D>0		#
+	lbl D>0
+	
+	rpop RAB
+		#stk ... D
+	sqrt
+		#stk ... sD
+	rpush RAB
+		#stk ...
+
+	rpop RAX
+	push 2
+	mul
+		#stk ... 2a
+
+	rpop RAB
+		#stk ... 2a sD
+
+	rpop RAY
+	push -1
+	mul
+		#stk ... 2a sD -b
+	
+	sub
+	div
+	
+	rpop RAX
+	push 2
+	mul
+		#stk ... x1 2a
+
+	rpop RAB
+		#stk ... x1 2a sD
+
+	rpop RAY
+	push -1
+	mul
+		#stk ... x1 2a sD -b
+	
+	add
+	div
+	
+		#stk x1 x2
+	
+	push 2	
+	
+	jmp to_a!=0
+#END END END END END END END END#
+
+
+#		A=0&B=0		#
+	lbl a=0&b=0
+	
+	rpop RAZ
+	push 0
+	je a=0&b=0&c=0
+	jmp a=0&b=0&c!=0
+	
+	lbl to_a=0&b=0
+
+	jmp to_a=0
+#END END END END END END END END#
+
+
+#		A=0&B!=0	#
+	lbl a=0&b!=0
+
+	rpop RAY
+		#stk b
+
+	rpop RAZ
+		#stk b c
+	push -1
+		#stk b c -1
+	mul
+		#stk b -c
+	div
+		#stk -c/b
+	push 1
+		#stk -c/b 1
+
+	jmp to_a=0
+#END END END END END END END END#
+
+
+#		A=0&B=0&C!=0	#
+	lbl a=0&b=0&c=0
+	push -1
+	
+	jmp to_a=0&b=0
+#END END END END END END END END#
+
+
+#		A=0&B=0&C!=0	#
+	lbl a=0&b=0&c!=0	
+	push 0
+	
+	jmp to_a=0&b=0
+#END END END END END END END END#
+
+#		OUT_0_ROOTS	#
+	lbl out0
+	
+	rpop RAA
+	out
+
+	jmp main_end
+#END END END END END END END END#
+
+#		OUT_1_ROOT	#
+	lbl out1
+	
+	rpop RAA
+	out
+	
+	out
+
+	jmp main_end
+#END END END END END END END END#
+
+
+#		OUT_2_ROOTS	#
+	lbl out2
+	
+	rpop RAA
+	out
+	
+	out
+	out
+
+	jmp main_end
+#END END END END END END END END#
+
+#		OUT_INF_ROOTS	#
+	lbl out-1
+	
+	rpop RAA
+	out
+
+	jmp main_end
+#

@@ -35,3 +35,9 @@ typedef int stack_e;
     else\
         PRINTF("[PASSED]\t%s = %d\n", #what, _what);\
     }
+
+///
+
+
+// for (auto auto: auto) auto();
+

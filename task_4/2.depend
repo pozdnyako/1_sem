@@ -1,0 +1,95 @@
+# depslib dependency file v1.0
+1538103156 source:d:\users\admin\documents\github\1_sem\1_sem\laba_sosat\main.cpp
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<ctime>
+	<cstdlib>
+
+1538099623 d:\users\admin\documents\github\1_sem\1_sem\laba_sosat\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<ctime>
+	<cstdlib>
+
+1539053200 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\main.cpp
+	"Stack.h"
+
+1539164684 d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.h
+	"info.h"
+
+1539167566 d:\users\admin\documents\github\1_sem\1_sem\task_3\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<algorithm>
+	<ctime>
+	<cstdlib>
+
+1539167566 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.cpp
+	"Stack.h"
+
+1541581302 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\main.cpp
+	"Assembler.h"
+	"StringArray.h"
+	"Processor.h"
+	"Stack.h"
+
+1539761131 d:\users\admin\documents\github\1_sem\1_sem\task_4\stack.h
+	"info.h"
+
+1541576263 d:\users\admin\documents\github\1_sem\1_sem\task_4\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<cstdlib>
+	"commands.h"
+	"registers.h"
+
+1541580698 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\processor.cpp
+	"Processor.h"
+	"Stack.h"
+	"registers.h"
+	"registers.h"
+	"commands.h"
+
+1541576277 d:\users\admin\documents\github\1_sem\1_sem\task_4\processor.h
+	"info.h"
+
+1541564838 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\stack.cpp
+	"Stack.h"
+
+1541581401 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\stringarray.cpp
+	"StringArray.h"
+
+1540383343 d:\users\admin\documents\github\1_sem\1_sem\task_4\stringarray.h
+	"info.h"
+
+1541576313 d:\users\admin\documents\github\1_sem\1_sem\task_4\commands.h
+	"registers.h"
+	"registers.h"
+
+1541575601 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\assembler.cpp
+	"StringArray.h"
+	"Assembler.h"
+	"commands.h"
+
+1540724050 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\info.cpp
+	"info.h"
+
+1540951254 d:\users\admin\documents\github\1_sem\1_sem\task_4\registers.h
+
+1541571348 d:\users\admin\documents\github\1_sem\1_sem\task_4\assembler.h
+	"info.h"
+

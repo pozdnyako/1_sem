@@ -1,0 +1,99 @@
+# 1 "commands.h"
+# 1 "<command-line>"
+# 1 "commands.h"
+# 9 "commands.h"
+DEF_CMD(PUSH, 1,
+        {
+            proc->cp ++;
+            ProcPush(proc, proc->code[proc->cp]);
+            proc->cp ++;
+        }
+        )
+DEF_CMD(ProcPop(proc), 2,
+        {
+            ProcPop(proc);
+            proc->cp ++;
+        }
+        )
+DEF_CMD(ADD, 3,
+        {
+            ProcPush(proc, ProcPop(proc) + ProcPop(proc));
+            proc->cp ++;
+        }
+        )
+DEF_CMD(SUB, 4,
+        {
+            ProcPush(proc, (double)ProcPop(proc)-(double)ProcPop(proc));
+            proc->cp ++;
+        }
+        )
+DEF_CMD(MUL, 5,
+        {
+            ProcPush(proc, ProcPop(proc) * ProcPop(proc));
+            proc->cp ++;
+        }
+        )
+DEF_CMD(DIV, 6,
+        {
+            ProcPush(proc, (double)ProcPop(proc) / (double)ProcPop(proc));
+            proc->cp ++;
+        }
+        )
+DEF_CMD(SIN, 7,
+        {
+            ProcPush(proc, (stack_e)sin((double)ProcPop(proc)));
+            proc->cp ++;
+        }
+        )
+DEF_CMD(SQRT, 8,
+        {
+            ProcPush(proc, (stack_e)sqrt((double)ProcPop(proc)));
+            proc->cp ++;
+        }
+        )
+DEF_CMD(IN, 9,
+        {
+            double a;
+            scanf("%lf", a);
+            ProcPush(proc, (stack_e)a);
+            proc->cp ++;
+        }
+        )
+DEF_CMD(OUT, 10,
+        {
+            printf("%lf", (double)ProcPop(proc));
+            proc->cp ++;
+        }
+        )
+DEF_CMD(PUSH_REG, 11,
+        {
+            proc->cp ++;
+
+
+            switch(proc->code[proc->cp]) {
+# 1 "registers.h" 1
+
+case 0: proc->registers[0] = ProcPop(proc); break;
+case 1: proc->registers[1] = ProcPop(proc); break;
+case 2: proc->registers[2] = ProcPop(proc); break;
+case 3: proc->registers[3] = ProcPop(proc); break;
+case 4: proc->registers[4] = ProcPop(proc); break;
+case 5: proc->registers[5] = ProcPop(proc); break;
+case 6: proc->registers[6] = ProcPop(proc); break;
+case 7: proc->registers[7] = ProcPop(proc); break;
+case 8: proc->registers[8] = ProcPop(proc); break;
+case 9: proc->registers[9] = ProcPop(proc); break;
+# 79 "commands.h" 2
+            default:
+                printf("[ERROR] register number %d wasn't declared", proc->code[proc->cp]);
+                break;
+            }
+
+            proc->cp ++;
+        }
+        )
+DEF_CMD(END, 0,
+        {
+            ;
+        }
+        )

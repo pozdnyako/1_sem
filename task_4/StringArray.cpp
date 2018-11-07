@@ -8,6 +8,99 @@
 #include "StringArray.h"
 
 /*!
+    \param  [in]    file            pointer to used file
+
+    \return size of the file in bites
+*/
+long long get_file_size(FILE* *file) {
+    assert(file != NULL);
+
+    fpos_t cur_pos;
+    fgetpos(*file, &cur_pos);
+
+    fseek(*file, 0, SEEK_END);
+    long long size = ftell(*file);
+
+    fseek(*file, 0, cur_pos);
+
+    return size;
+}
+
+/*!
+    \brief Input
+    \param  [in]    path                pointer to path to input file
+    \param  [out]   buf_size            pointer to size of file
+    \param  [out]   buf                 pointer to data
+
+    \return sucsess
+
+    \note Delete buf and buf_size. Scan file to buf.
+*/
+bool scan_str_with_delete_and_new(const char* path, size_t *buf_size, char* *buf) {
+    assert(path != NULL);
+    assert(buf_size != NULL);
+    assert(buf != NULL);
+
+    FILE* input = fopen(path, "rb");
+    assert(input != NULL);
+
+    int size = get_file_size(&input);
+    int length = size / sizeof(char);
+
+    *buf_size = 0;
+    delete *buf;
+
+    *buf_size = length;
+    *buf = new char[length];
+    int result = fread(*buf, sizeof(char), size, input);
+    *(*buf + length) = EOF;
+
+    if(result != size) {
+        printf("[ERROR] reading from %s\n", path);
+        return false;
+    }
+
+    fclose(input);
+
+    return true;
+}
+
+/*!
+    \brief Print string
+    \param  [in]    str_size                size of string
+    \param  [in]    str                     string to printing
+
+    \return sucsess
+
+    \note print string
+*/
+bool print_str(int str_size, char *str) {
+    assert(str != NULL);
+
+    for(int i = 0; i < str_size; i ++) {
+        printf("%c", *(str + i));
+    }
+    return true;
+}
+
+/*!
+    \brief Print string to file
+    \param  [in]    str_size                size of string
+    \param  [in]    str                     string to printing
+    \param  [in]    file                    pointer to file for printing
+
+    \return sucsess
+
+    \note print string to file
+*/
+bool fprint_str(M_str str, FILE* *file) {
+    assert(str.str != NULL);
+
+    fprintf(*file, "%s", str.str);
+    return true;
+}
+
+/*!
     \brief Standrad constructor
 */
 StringArray :: StringArray()
@@ -120,6 +213,7 @@ bool StringArray :: scan(const char* path) {
     assert(path != NULL);
 
     is_data_loaded = scan_str_with_delete_and_new(path, &data_size, &data);
+    data[data_size - 1] = EOF;
 
     return is_data_loaded;
 }
@@ -156,7 +250,7 @@ bool StringArray :: print(const char *path) {
 */
 bool StringArray :: mark_text() {
     delete_marking();
-    n_strings = 0;
+    n_strings = 1;
 
     for(int i = 0; i < data_size; i ++) {
         if(data[i] == '\r' || data[i] == EOF) {
@@ -164,6 +258,10 @@ bool StringArray :: mark_text() {
         }
         if(data[i] == '\n') {
             data[i] = '\0';
+        }
+    }
+    for(int i = 1; i < data_size; i ++) {
+        if(data[i] == '\0' && !(i + 1 < data_size && data[i + 1]  == '\0')){
             n_strings ++;
         }
     }
@@ -187,64 +285,5 @@ bool StringArray :: mark_text() {
         }
     }
     is_marked = true;
-    return true;
-}
-
-/*!
-    \brief Quicksorting
-
-    \param  [in]    first                   number of the first element
-    \param  [in]    last                    number of the last  element
-    \param  [out]   sortrer                 pointer to sorter function
-
-    \return is element number f should be after element number s
-
-*/
-bool StringArray :: sort_text(int first, int last, int (*sorter)(const void*, const void*)) {
-    if(first >= last)
-        return true;
-
-    assert(first >= 0);
-    assert(first < n_strings);
-    assert(last >= 0);
-    assert(last < n_strings);
-
-    qsort(strings + first, (size_t)(last - first), (size_t)sizeof(M_str), sorter);
-
-    return true;
-}
-
-/*!
-    \brief  generation sonnet
-
-    \param  [in]    quatrains_num               number of the quatrains
-
-    \return sucsess
-*/
-bool StringArray :: generate_sonnet(int quatrains_num) {
-    if(n_strings < DELTA_STRING * 2)
-        return false;
-
-    int *string_num = new int[quatrains_num * 4];
-
-    for(int i = 0; i < quatrains_num; i ++) {
-        string_num[i * 4 + 0] =                         rand() % (n_strings - DELTA_STRING * 2) + DELTA_STRING;
-        string_num[i * 4 + 2] = string_num[i * 4 + 0] + rand() % (            DELTA_STRING * 2) - DELTA_STRING;
-        string_num[i * 4 + 1] =                         rand() % (n_strings - DELTA_STRING * 2) + DELTA_STRING;
-        string_num[i * 4 + 3] = string_num[i * 4 + 1] + rand() % (            DELTA_STRING * 2) - DELTA_STRING;
-    }
-    M_str *new_strings = new M_str[quatrains_num * 4];
-
-    for(int i = 0; i < quatrains_num * 4; i ++) {
-        new_strings[i] = strings[string_num[i]];
-    }
-
-    delete_marking();
-
-    n_strings = quatrains_num * 4;
-    strings = new_strings;
-
-    delete[] string_num;
-
     return true;
 }
