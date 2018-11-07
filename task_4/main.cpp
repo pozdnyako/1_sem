@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     Assembler ass = {};
     Proc proc = {};
 
-    char prog_name[60] = "fib";
+    char prog_name[60] = "fib_";
     char input_path[100] = "src/";
     char exe_path[100] = "exe";
 

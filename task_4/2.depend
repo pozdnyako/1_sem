@@ -38,7 +38,7 @@
 1539167566 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.cpp
 	"Stack.h"
 
-1541581302 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\main.cpp
+1541586914 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\main.cpp
 	"Assembler.h"
 	"StringArray.h"
 	"Processor.h"
@@ -57,7 +57,7 @@
 	"commands.h"
 	"registers.h"
 
-1541580698 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\processor.cpp
+1541587321 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\processor.cpp
 	"Processor.h"
 	"Stack.h"
 	"registers.h"

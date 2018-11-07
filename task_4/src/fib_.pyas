@@ -1,0 +1,43 @@
+##		MAIN		##
+
+	in 	
+	push 1
+	add
+	push 1
+
+	jmp f
+
+	lbl to_main
+	rpop RAY
+	out	
+end
+#END END END END END END END END#
+
+
+#		f		#
+	lbl f
+
+		#stk n res
+	rpush RAY
+		#stk n
+	rpush RAZ
+	
+	rpop RAZ
+	push 2
+	ja to_main
+
+	rpop RAZ
+	push -1
+	add
+		#stk n-1	
+	rpush RAZ
+	rpop RAZ
+	rpop RAZ
+
+	rpop RAY
+		#stk n-1 n-1 res
+	mul
+
+		#stk n-1 res*n-1
+	jmp f
+#END END END END END END END END#

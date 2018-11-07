@@ -97,7 +97,7 @@ int ProcTick(Proc* proc) {
     assert(proc);
 
     proc->tick_n ++;
-    #define DEF_CMD(name, num, code, ...) \
+    #define DEF_CMD(name,  num, code, ...) \
         case CMD_##name : code break;
     switch(proc->code[proc->cp]) {
         #include "commands.h"
