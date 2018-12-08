@@ -173,7 +173,6 @@ Node* Calc :: getN() {
     if(old_cur == cur) {
         msg_push(N_ERROR);
     } else {
-        std::cout << "DIG: " << (int)val << std::endl;
         node = TreeNodeCreate(&m_tree, Node::TYPE_DIG, (int)val, NULL, NULL);
     }
 
@@ -195,7 +194,6 @@ Node* Calc :: getId() {
     if(old_cur == cur) {
         msg_push(ID_ERROR);
     } else {
-        std::cout << "VAR: " << (char)val << std::endl;
         node = TreeNodeCreate(&m_tree, Node::TYPE_VAR, (int)val, NULL, NULL);
     }
 
@@ -220,7 +218,6 @@ Node* Calc :: getFu() {
     if(old_cur == cur) {
         msg_push(FU_ERROR);
     } else {
-        std::cout << "OPR: " << (char)val << std::endl;
         Node* node1 = getP(); check_error;
 
         node = TreeNodeCreate(&m_tree, Node::TYPE_OPR, (int)val, node1, NULL);

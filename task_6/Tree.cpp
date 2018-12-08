@@ -116,7 +116,6 @@ Node* TreeNodeCreate(Tree *tree) {
     assert(tree->nodes_size);
 
     if(tree->nodes_num >= tree->nodes_size) {
-        std::cout << "-----------------------[ERROR]-----------------------";
         int d_root = tree->root - tree->nodes;
 
         tree->nodes_size *= 2;
@@ -622,8 +621,6 @@ void NodeInfDumb(Node* node) {
 
 void NodeDelete(Node* node) {
     assert(node);
-
-    printf("DELETE:"); NodeDumb(node);
 
     NodeDtor(node);
 }
