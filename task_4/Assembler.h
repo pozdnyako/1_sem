@@ -12,7 +12,7 @@ struct Assembler {
     Label *lbls;
     int lbl_num;
 
-    bool is_loaded, is_compeled;
+    bool is_loaded, is_compiled;
 
     int n_comp;
 };

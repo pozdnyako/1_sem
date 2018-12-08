@@ -44,7 +44,7 @@ bool scan_str_with_delete_and_new(const char* path, size_t *buf_size, char* *buf
     FILE* input = fopen(path, "rb");
     assert(input != NULL);
 
-    int size = get_file_size(&input);
+    int size = get_file_size(&input) + 1;
     int length = size / sizeof(char);
 
     *buf_size = 0;
@@ -53,9 +53,9 @@ bool scan_str_with_delete_and_new(const char* path, size_t *buf_size, char* *buf
     *buf_size = length;
     *buf = new char[length];
     int result = fread(*buf, sizeof(char), size, input);
-    *(*buf + length) = EOF;
+    *(*buf + length - 1) = EOF;
 
-    if(result != size) {
+    if(result != size - 1) {
         printf("[ERROR] reading from %s\n", path);
         return false;
     }
@@ -137,11 +137,11 @@ bool StringArray :: memcopy(StringArray *copy) {
     data = new char[data_size];
     strings = new M_str[n_strings];
 
-    for(int i = 0; i < data_size; i ++) {
+    for(int i = 0; i < (int)data_size; i ++) {
         *(data + i) = *(copy->data + i);
     }
 
-    for(int i = 0; i < n_strings; i ++) {
+    for(int i = 0; i < (int)n_strings; i ++) {
         (*(strings + i)).str = ((*(copy->strings + i)).str - copy->data) + data;
         (*(strings + i)).len = ( *(copy->strings + i)).len;
     }
@@ -261,7 +261,7 @@ bool StringArray :: mark_text() {
         }
     }
     for(int i = 1; i < data_size; i ++) {
-        if(data[i] == '\0' && !(i + 1 < data_size && data[i + 1]  == '\0')){
+        if(data[i] == '\0' && !(i + 1 < data_size && data[i + 1]  == '\0') || i + 1 == data_size){
             n_strings ++;
         }
     }
@@ -274,7 +274,7 @@ bool StringArray :: mark_text() {
     strings[0].str = data;
 
     for(int i = 1; i < data_size && str_counter <= n_strings; i ++) {
-        if(data[i] == '\0' && !(i + 1 < data_size && data[i + 1]  == '\0')) {
+        if(data[i] == '\0' && !(i + 1 < data_size && data[i + 1]  == '\0') || i + 1 == data_size) {
             strings[str_counter].str = data + i + 1;
             strings[str_counter - 1].len = str_length;
 
@@ -284,6 +284,7 @@ bool StringArray :: mark_text() {
             str_length ++;
         }
     }
+
     is_marked = true;
     return true;
 }

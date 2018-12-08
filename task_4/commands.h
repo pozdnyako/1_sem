@@ -10,6 +10,12 @@
             proc->cp += sizeof(type) - 1;\
         }\
 
+#define READ_ARG(arg, type)\
+        {\
+            arg = *(type*)(das->bytecode + das->cp);\
+            das->cp += sizeof(type) - 1;\
+        }\
+
 #define REG(num) proc->registers[num]
 
 #define ARG_1 words[1]
@@ -35,11 +41,18 @@ DEF_CMD(PUSH, 1,
         }
         , 1, push,
         {
-            double pushed_num;
+            double pushed_num = 0;
             sscanf(ARG_1, "%lf", &pushed_num);
             WRITE_ARG(pushed_num, double);
         }
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+            stack_e arg = 0;
+            READ_ARG(arg, double);
+            cur_code_pos += sprintf(das->code + cur_code_pos, " %f", (float)arg);
+            nxt_C
+        }
         )
 DEF_CMD(POP, 2,
         {
@@ -48,7 +61,10 @@ DEF_CMD(POP, 2,
         }
         , 0, pop,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 DEF_CMD(ADD, 3,
         {
@@ -57,7 +73,10 @@ DEF_CMD(ADD, 3,
         }
         , 0, add,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 DEF_CMD(SUB, 4,
         {
@@ -66,7 +85,10 @@ DEF_CMD(SUB, 4,
         }
         , 0, sub,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 DEF_CMD(MUL, 5,
         {
@@ -75,7 +97,10 @@ DEF_CMD(MUL, 5,
         }
         , 0, mul,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 DEF_CMD(DIV, 6,
         {
@@ -84,7 +109,10 @@ DEF_CMD(DIV, 6,
         }
         , 0, div,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 DEF_CMD(SIN, 7,
         {
@@ -93,7 +121,10 @@ DEF_CMD(SIN, 7,
         }
         , 0, sin,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 DEF_CMD(SQRT, 8,
         {
@@ -102,18 +133,24 @@ DEF_CMD(SQRT, 8,
         }
         , 0, sqrt,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 DEF_CMD(IN, 9,
         {
-            double a;
+            double a = 0;
             scanf("%Lf", &a);
             PUSH((stack_e)a);
             nxt_C
         }
         , 0, in,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 DEF_CMD(OUT, 10,
         {
@@ -122,12 +159,15 @@ DEF_CMD(OUT, 10,
         }
         , 0, out,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 DEF_CMD(PUSH_REG, 11,
         {
             nxt_C;
-            char reg_n;
+            char reg_n = 0;
             USE_ARG(reg_n, char);
 
             switch(reg_n) {
@@ -169,7 +209,26 @@ DEF_CMD(PUSH_REG, 11,
 
             WRITE_ARG(reg_num, char);
         }
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+            char reg_n = 0;
+            READ_ARG(reg_n, char);
+            char name[3] = "er";
+            switch(reg_n) {
+            case CMD_REG_RAX : strcpy(name, "RAX"); break;
+            case CMD_REG_RAY : strcpy(name, "RAY"); break;
+            case CMD_REG_RAZ : strcpy(name, "RAZ"); break;
+            case CMD_REG_RAA : strcpy(name, "RAA"); break;
+            case CMD_REG_RAB : strcpy(name, "RAB"); break;
+            default:
+                printf("[ERROR] register number %d wasn't declared", reg_n);
+                break;
+            }
+
+            cur_code_pos += sprintf(das->code + cur_code_pos, " %s", name);
+            nxt_C
+        }
         )
 DEF_CMD(_JMP, 12,
         {
@@ -180,11 +239,18 @@ DEF_CMD(_JMP, 12,
         }
         , 1, _jmp,
         {
-            long long pos;
+            long long pos = 0;
             sscanf(ARG_1, "%lld", &pos);
             WRITE_ARG(pos, long long);
         }
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+            long long arg = 0;
+            READ_ARG(arg, long long);
+            cur_code_pos += sprintf(das->code + cur_code_pos, " %lld", arg);
+            nxt_C
+        }
         )
 DEF_CMD(LBL, 13,
         {}
@@ -216,7 +282,7 @@ DEF_CMD(LBL, 13,
                 printf("[WARNING] redefintion of label %s", lbl_name);
             }
         }
-        , NO_BYTECODE
+        , NO_BYTECODE, {}
         )
 DEF_CMD(JMP, 14,
         {}
@@ -244,12 +310,12 @@ DEF_CMD(JMP, 14,
                 WRITE_ARG(m_lbl_pos, long long);
             }
         }
-        , CMD__JMP
+        , CMD__JMP, {}
         )
 DEF_CMD(POP_REG, 15,
         {
             nxt_C;
-            char reg_n;
+            char reg_n = 0;
             USE_ARG(reg_n, char);
 
             switch(reg_n) {
@@ -292,7 +358,26 @@ DEF_CMD(POP_REG, 15,
 
             WRITE_ARG(reg_num, char);
         }
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+            char reg_n = 0;
+            READ_ARG(reg_n, char);
+            char name[3] = "er";
+            switch(reg_n) {
+            case CMD_REG_RAX : strcpy(name, "RAX"); break;
+            case CMD_REG_RAY : strcpy(name, "RAY"); break;
+            case CMD_REG_RAZ : strcpy(name, "RAZ"); break;
+            case CMD_REG_RAA : strcpy(name, "RAA"); break;
+            case CMD_REG_RAB : strcpy(name, "RAB"); break;
+            default:
+                printf("[ERROR] register number %d wasn't declared", reg_n);
+                break;
+            }
+
+            cur_code_pos += sprintf(das->code + cur_code_pos, " %s", name);
+            nxt_C
+        }
         )
 DEF_CMD(_JA, 16,
         {
@@ -307,11 +392,18 @@ DEF_CMD(_JA, 16,
         }
         , 1, _ja,
         {
-            long long pos;
+            long long pos = 0;
             sscanf(ARG_1, "%lld", &pos);
             WRITE_ARG(pos, long long);
         }
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+            long long arg = 0;
+            READ_ARG(arg, long long);
+            cur_code_pos += sprintf(das->code + cur_code_pos, " %lld", arg);
+            nxt_C
+        }
         )
 DEF_CMD(JA, 17,
         {}
@@ -339,7 +431,7 @@ DEF_CMD(JA, 17,
                 WRITE_ARG(m_lbl_pos, long long);
             }
         }
-        , CMD__JA
+        , CMD__JA, {}
         )
 DEF_CMD(_JE, 18,
         {
@@ -355,11 +447,18 @@ DEF_CMD(_JE, 18,
         }
         , 1, _je,
         {
-            long long pos;
+            long long pos = 0;
             sscanf(ARG_1, "%lld", &pos);
             WRITE_ARG(pos, long long);
         }
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+            long long arg = 0;
+            READ_ARG(arg, long long);
+            cur_code_pos += sprintf(das->code + cur_code_pos, " %lld", arg);
+            nxt_C
+        }
         )
 DEF_CMD(JE, 19,
         {}
@@ -387,7 +486,7 @@ DEF_CMD(JE, 19,
                 WRITE_ARG(m_lbl_pos, long long);
             }
         }
-        , CMD__JE
+        , CMD__JE, {}
         )
 DEF_CMD(CALL, 20,
         {
@@ -395,6 +494,7 @@ DEF_CMD(CALL, 20,
             long long arg = 0;
             USE_ARG(arg, long long);
 
+            nxt_C
             StackPush(proc->calls, proc->cp);
             proc->cp = arg;
         }
@@ -425,7 +525,14 @@ DEF_CMD(CALL, 20,
             calls[call_n] = current_pos;
             call_n ++;
         }
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+            long long arg = 0;
+            READ_ARG(arg, long long);
+            cur_code_pos += sprintf(das->code + cur_code_pos, " %lld", arg);
+            nxt_C
+        }
         )
 DEF_CMD(RET, 21,
         {
@@ -434,7 +541,58 @@ DEF_CMD(RET, 21,
         }
         , 0, ret,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
+        )
+DEF_CMD(RAPU, 22,
+        {
+            nxt_C
+            int num = 0;
+            USE_ARG(num, int);
+
+            proc->ram[num] = POP;
+            nxt_C
+        }
+        , 1, rapu,
+        {
+            int num = 0;
+            sscanf(ARG_1, "%d", &num);
+            WRITE_ARG(num, int);
+        }
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+            int num = 0;
+            READ_ARG(num, int);
+            cur_code_pos += sprintf(das->code + cur_code_pos, " %d", num);
+            nxt_C
+        }
+        )
+DEF_CMD(RAPO, 23,
+        {
+            nxt_C
+            int num = 0;
+            USE_ARG(num, int);
+
+            PUSH(proc->ram[num]);
+            nxt_C
+        }
+        , 1, rapo,
+        {
+            int num = 0;
+            sscanf(ARG_1, "%d", &num);
+            WRITE_ARG(num, int);
+        }
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+            int num = 0;
+            READ_ARG(num, int);
+            cur_code_pos += sprintf(das->code + cur_code_pos, " %d", num);
+            nxt_C
+        }
         )
 DEF_CMD(END, 0,
         {
@@ -442,7 +600,10 @@ DEF_CMD(END, 0,
         }
         , 0, end,
         {}
-        , NORMAL_BYTECODE
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        }
         )
 #undef nxt_C
 #undef CODE

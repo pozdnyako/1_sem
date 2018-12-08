@@ -5,12 +5,11 @@
 	add
 	push 1
 
-	jmp f
+	call f
 
-	lbl to_main
 	rpop RAY
 	out	
-end
+	end
 #END END END END END END END END#
 
 
@@ -24,7 +23,7 @@ end
 	
 	rpop RAZ
 	push 2
-	ja to_main
+	ja f_out
 
 	rpop RAZ
 	push -1
@@ -39,5 +38,11 @@ end
 	mul
 
 		#stk n-1 res*n-1
-	jmp f
+	call f
+	ret
+#END END END END END END END END#
+
+#
+	lbl f_out
+	ret
 #END END END END END END END END#

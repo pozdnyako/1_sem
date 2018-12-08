@@ -1,0 +1,24 @@
+in
+push 1.000000
+add
+push 1.000000
+call 36
+rapo 2
+out
+end
+rapu 2
+rapu 1
+rapo 1
+push 2.000000
+_ja 115
+rapo 1
+push -1.000000
+add
+rapu 1
+rapo 1
+rapo 1
+rapo 2
+mul
+call 36
+ret
+ret

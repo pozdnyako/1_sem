@@ -1,0 +1,24 @@
+in
+push 1.000000
+add
+push 1.000000
+call 33
+rpop RAY
+out
+end
+rpush RAY
+rpush RAZ
+rpop RAZ
+push 2.000000
+_ja 88
+rpop RAZ
+push -1.000000
+add
+rpush RAZ
+rpop RAZ
+rpop RAZ
+rpop RAY
+mul
+call 33
+ret
+ret

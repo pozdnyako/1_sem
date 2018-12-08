@@ -9,7 +9,7 @@ void AssCtor(Assembler *ass) {
     ass->code = new StringArray();
 
     ass->is_loaded = false;
-    ass->is_compeled = false;
+    ass->is_compiled = false;
 
     ass->lbls = new Label[MAX_NUM_LABELS];
 
@@ -20,8 +20,11 @@ void AssDtor(Assembler *ass) {
     assert(ass);
     assert(ass->code);
 
-    if(ass->is_compeled)
+    if(ass->is_compiled)
         assert(ass->bytecode);
+
+    delete ass->code;
+    delete[] ass->bytecode;
 }
 
 int AssInput(Assembler *ass, const char* path) {
@@ -30,6 +33,8 @@ int AssInput(Assembler *ass, const char* path) {
 
     ass->code->scan(path);
     ass->code->mark_text();
+
+    ass->is_loaded = true;
 }
 
 #define WRITE_COMMAND_NAME\
@@ -52,9 +57,16 @@ int AssCompile(Assembler *ass) {
     assert(ass);
     assert(ass->code);
 
-     if(ass->n_comp == 0) {
+    if(!ass->is_loaded) {
+        printf("[ERROR]\tcode doesn't loaded\n");
+        return 0;
+    }
+
+    if(ass->n_comp == 0) {
+        if(ass->is_compiled)
+            printf("[OUT]\tcode is already compiled\n");
         printf("[OUT]\tcompiling starts\n");
-     }
+    }
 
     ass->code->print("out.txt");
 
@@ -77,9 +89,12 @@ int AssCompile(Assembler *ass) {
     long long calls[100];
     long long call_n = 0;
 
-    for(int i = 0; i < ass->code->n_strings; i ++) {
+    for(int i = 0; i < (int)ass->code->n_strings; i ++) {
         char n_command = -1;
         int n_args = -1;
+
+        if(ass->code->strings[i].len == 0)
+            continue;
 
         char command[MAX_COMMAND_LENGTH];
         strcpy(command, ass->code->strings[i].str);
@@ -104,7 +119,7 @@ int AssCompile(Assembler *ass) {
         }
 
         int t_bytecode = 0;
-        #define DEF_CMD(name, num, __code, num_arg, name_code, arg_code, _t_bytecode) \
+        #define DEF_CMD(name, num, __code, num_arg, name_code, arg_code, _t_bytecode, ...) \
             t_bytecode = _t_bytecode;\
             if(strcmp(words[0], #name_code) == 0 && strlen(words[0]) == strlen(#name_code)){\
                 n_command = CMD_##name;\
@@ -136,7 +151,7 @@ int AssCompile(Assembler *ass) {
     } else {
         printf("[OUT]\tcompiling finished succsessful\n");
         ass->n_comp = 0;
-
+        ass->is_compiled = true;
         fclose(log);
     }
 

@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Assembler.cpp" />
 		<Unit filename="Assembler.h" />
+		<Unit filename="Disassembler.cpp" />
+		<Unit filename="Disassembler.h" />
 		<Unit filename="Processor.cpp" />
 		<Unit filename="Processor.h" />
 		<Unit filename="Stack.cpp" />

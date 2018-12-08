@@ -3,33 +3,37 @@
 	push 1
 	add
 	push 1
-	jmp f
-	lbl to_main
-	rpop RAY
+	call f
+	rapo 2
 	out	
-end
+	end
 #END END END END END END END END#
 #		f		#
 	lbl f
 		#stk n res
-	rpush RAY
+	rapu 2
 		#stk n
-	rpush RAZ
+	rapu 1
 	
-	rpop RAZ
+	rapo 1
 	push 2
-	ja to_main
-	rpop RAZ
+	ja f_out
+	rapo 1
 	push -1
 	add
 		#stk n-1	
-	rpush RAZ
-	rpop RAZ
-	rpop RAZ
-	rpop RAY
+	rapu 1
+	rapo 1
+	rapo 1
+	rapo 2
 		#stk n-1 n-1 res
 	mul
 		#stk n-1 res*n-1
-	jmp f
-#END END END END END END END END
-ÿ[½ÏN[½ÏGRÓÇMùÞmñÒƒlíølíølGR¤°¾»TFó˜B
+	call f
+	ret
+#END END END END END END END END#
+#
+	lbl f_out
+	ret
+#END END END END END END END END#
+

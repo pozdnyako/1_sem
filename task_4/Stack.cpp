@@ -64,6 +64,8 @@ int StackPush(Stack *s, stack_e val) {
     s->data_size ++;
 
     ASSERT_OK(*s);
+
+    return 1;
 }
 
 /*!

@@ -1,0 +1,48 @@
+##		MAIN		##
+
+	in 	
+	push 1
+	add
+	push 1
+
+	call f
+
+	rapo 2
+	out	
+	end
+#END END END END END END END END#
+
+
+#		f		#
+	lbl f
+
+		#stk n res
+	rapu 2
+		#stk n
+	rapu 1
+	
+	rapo 1
+	push 2
+	ja f_out
+
+	rapo 1
+	push -1
+	add
+		#stk n-1	
+	rapu 1
+	rapo 1
+	rapo 1
+
+	rapo 2
+		#stk n-1 n-1 res
+	mul
+
+		#stk n-1 res*n-1
+	call f
+	ret
+#END END END END END END END END#
+
+#
+	lbl f_out
+	ret
+#END END END END END END END END#

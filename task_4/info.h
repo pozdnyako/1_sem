@@ -40,6 +40,8 @@ const int MIN_NAME_LENGTH = 3;
 const int MAX_NUM_ARGS = 4;
 const int MAX_NUM_LABELS = 20;
 
+const long long MAX_CODE_SIZE = MAX_COMMAND_LENGTH * 1000;
+
 const int NO_BYTECODE = -2;
 const int NORMAL_BYTECODE = -1;
 

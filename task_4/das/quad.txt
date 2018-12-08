@@ -1,0 +1,112 @@
+in
+in
+in
+rpush RAZ
+rpush RAY
+rpush RAX
+rpop RAX
+push 0.000000
+_je 131
+_jmp 169
+rpush RAA
+rpop RAA
+push 0.000000
+_je 487
+rpop RAA
+push -1.000000
+_je 526
+rpop RAA
+push 1.000000
+_je 499
+rpop RAA
+push 2.000000
+_je 512
+push -1488.000000
+out
+end
+rpop RAY
+push 0.000000
+_je 380
+_jmp 418
+_jmp 38
+push 4.000000
+rpop RAX
+rpop RAZ
+mul
+mul
+rpop RAY
+rpop RAY
+mul
+sub
+rpush RAB
+rpop RAB
+push 0.000000
+_ja 250
+rpop RAB
+push 0.000000
+_je 268
+_jmp 301
+_jmp 38
+push 0.000000
+_jmp 241
+rpop RAY
+rpop RAX
+push -2.000000
+mul
+div
+push 1.000000
+_jmp 241
+rpop RAB
+sqrt
+rpush RAB
+rpop RAX
+push 2.000000
+mul
+rpop RAB
+rpop RAY
+push -1.000000
+mul
+sub
+div
+rpop RAX
+push 2.000000
+mul
+rpop RAB
+rpop RAY
+push -1.000000
+mul
+add
+div
+push 2.000000
+_jmp 241
+rpop RAZ
+push 0.000000
+_je 451
+_jmp 469
+_jmp 160
+rpop RAY
+rpop RAZ
+push -1.000000
+mul
+div
+push 1.000000
+_jmp 160
+push -1.000000
+_jmp 409
+push 0.000000
+_jmp 409
+rpop RAA
+out
+_jmp 130
+rpop RAA
+out
+out
+_jmp 130
+rpop RAA
+out
+out
+out
+_jmp 130
+rpop RAA
+out
+_jmp 130

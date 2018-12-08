@@ -11,8 +11,11 @@ struct Proc {
     long long tick_n;
     stack_e* registers;
 
-    static const long long STACK_SIZE = 10;
+    stack_e* ram;
+
+    static const long long STACK_SIZE = 100;
     static const long long MAX_CALL_NUM = 100;
+    static const long long RAM_SIZE = 100;
 };
 
 void ProcCtor(Proc*);
