@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     TreeCtor(&dTree);
 
     Calc calc;
-    calc.getG("(L(ax))^(cx^(1/3)/x)");
+    calc.getG("L(2*x+7*x^4)+s(5*x)");
 
     fprintf(texout, "\\[ \\left( ");
     TreeTexDumb(&calc.m_tree, texout);
