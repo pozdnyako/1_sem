@@ -6,8 +6,9 @@
 	push 1
 
 	call f
-
-	rapo 2
+	
+	push 2
+	rapo
 	out	
 	end
 #END END END END END END END END#
@@ -17,23 +18,31 @@
 	lbl f
 
 		#stk n res
-	rapu 2
+	push 2
+	rapu
 		#stk n
-	rapu 1
+	push 1
+	rapu
 	
-	rapo 1
+	push 1
+	rapo
 	push 2
 	ja f_out
 
-	rapo 1
+	push 1
+	rapo
 	push -1
 	add
 		#stk n-1	
-	rapu 1
-	rapo 1
-	rapo 1
-
-	rapo 2
+	push 1
+	rapu
+	push 1
+	rapo
+	push 1
+	rapo
+	
+	push 2
+	rapo
 		#stk n-1 n-1 res
 	mul
 

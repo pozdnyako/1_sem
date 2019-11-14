@@ -5,6 +5,7 @@ void ProcCtor(Proc* proc) {
     assert(proc);
     assert(!proc->m_stack);
     assert(!proc->calls);
+    assert(!proc->ram_use);
     assert(!proc->code);
     assert(!proc->ram);
 
@@ -23,6 +24,9 @@ void ProcCtor(Proc* proc) {
     proc->calls = new Stack;
     *(proc->calls) = {};
 
+    proc->ram_use = new Stack;
+    *(proc->ram_use) = {};
+
     proc->ram = new stack_e[Proc::RAM_SIZE];
 
     for(int i = 0; i < Proc::RAM_SIZE; i ++) {
@@ -31,6 +35,7 @@ void ProcCtor(Proc* proc) {
 
     StackCtor(proc->m_stack, Proc::STACK_SIZE);
     StackCtor(proc->calls, Proc::MAX_CALL_NUM);
+    StackCtor(proc->ram_use, Proc::MAX_CALL_NUM+1);
 }
 
 void ProcDtor(Proc* proc) {
@@ -87,6 +92,7 @@ void ProcDump(Proc* proc, const char* name) {
 
     StackDump(proc->m_stack, "m_stack");
     StackDump(proc->calls, "calls");
+    StackDump(proc->ram_use, "ram_use");
 
     printf("\tRAM : {");
     for(int i = 0; i < Proc::RAM_SIZE; i ++) {
@@ -99,6 +105,9 @@ void ProcDump(Proc* proc, const char* name) {
 
 int ProcRun(Proc *proc) {
     assert(proc);
+
+    RAM_REGISTER_CUR = 0; /// RAX
+    RAM_REGISTER_MAX = 0; /// RAY
 
     proc->tick_n = 0;
     printf("[OUT]\tprocessor starts\n");
@@ -122,6 +131,34 @@ int ProcTick(Proc* proc) {
         break;
     }
 
-    //ProcDump(proc, "me");
+    for(int i = 0; i < 10; i ++) {
+        if(RAM_REGISTER_CUR == i) {
+            printf("->");
+        }
+        if(RAM_REGISTER_MAX == i) {
+            printf("|");
+        }
+
+        printf("%.0f ", proc->ram[i]);
+    }
+    printf("\n");
+    for(int i = 0; i < 10; i ++) {
+        if(proc->m_stack->data_size == i) {
+            printf("|");
+        }
+
+        printf("%.0f ", proc->m_stack->data[i]);
+    }
+    printf("\n");
+
+    for(int i = 0; i < 10; i ++) {
+        if(proc->calls->data_size == i) {
+            printf("|");
+        }
+
+        printf("%.0f ", proc->calls->data[i]);
+    }
+    printf("\n\n");
+
     #undef DEF_CMD
 }

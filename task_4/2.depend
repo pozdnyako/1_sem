@@ -38,7 +38,7 @@
 1539167566 source:d:\users\admin\documents\github\1_sem\1_sem\task_3\stack.cpp
 	"Stack.h"
 
-1544243845 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\main.cpp
+1545214422 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\main.cpp
 	"Assembler.h"
 	"StringArray.h"
 	"Processor.h"
@@ -48,7 +48,7 @@
 1539761131 d:\users\admin\documents\github\1_sem\1_sem\task_4\stack.h
 	"info.h"
 
-1541991954 d:\users\admin\documents\github\1_sem\1_sem\task_4\info.h
+1545206406 d:\users\admin\documents\github\1_sem\1_sem\task_4\info.h
 	<cmath>
 	<cassert>
 	<iostream>
@@ -58,14 +58,14 @@
 	"commands.h"
 	"registers.h"
 
-1544244246 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\processor.cpp
+1545214667 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\processor.cpp
 	"Processor.h"
 	"Stack.h"
 	"registers.h"
 	"registers.h"
 	"commands.h"
 
-1544244222 d:\users\admin\documents\github\1_sem\1_sem\task_4\processor.h
+1545211177 d:\users\admin\documents\github\1_sem\1_sem\task_4\processor.h
 	"info.h"
 
 1541983262 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\stack.cpp
@@ -77,7 +77,7 @@
 1540383343 d:\users\admin\documents\github\1_sem\1_sem\task_4\stringarray.h
 	"info.h"
 
-1544244341 d:\users\admin\documents\github\1_sem\1_sem\task_4\commands.h
+1545219128 d:\users\admin\documents\github\1_sem\1_sem\task_4\commands.h
 	"registers.h"
 	"registers.h"
 
@@ -89,7 +89,7 @@
 1540724050 source:d:\users\admin\documents\github\1_sem\1_sem\task_4\info.cpp
 	"info.h"
 
-1540951254 d:\users\admin\documents\github\1_sem\1_sem\task_4\registers.h
+1545206455 d:\users\admin\documents\github\1_sem\1_sem\task_4\registers.h
 
 1541982537 d:\users\admin\documents\github\1_sem\1_sem\task_4\assembler.h
 	"info.h"

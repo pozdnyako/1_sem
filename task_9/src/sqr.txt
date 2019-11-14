@@ -1,0 +1,69 @@
+var x1;
+var x2;
+
+function _sqrt(var X) {
+	sqrt X;
+	return X;
+}
+
+// Это был include "math.h"
+
+function solve_co(var C) {
+	if(C ~ 0) {
+		return 0-1;
+	}
+	return 0;
+}
+
+function solve_le(var A, var B) {
+	if(A ~ 0) {
+		return solve_co(B);
+	}
+	x1 = 0 - (B / A);
+
+	return 1;
+}
+
+function solve_sq(var A, var B, var C) {
+	if(A ~ 0) {
+		return solve_le(B, C);
+	}
+	var D;
+
+	D = _sqrt(B*B - 4 * A * C);
+	
+	if(D ~ 0) {
+		x1 = (0 - B) / 2 / A;
+		return 1;
+	}
+
+	x1 = (0 - B + D) / 2 / A;
+	x2 = (0 - B - D) / 2 / A;
+
+	return 2;
+}
+
+function main() {
+	var A;
+	var B;
+	var C;
+
+	scan A;
+	scan B;
+	scan C;
+	
+	var N;
+	N = solve_sq(A, B, C);
+	
+	print N;
+	
+	if(N ~ 1) {
+		print x1;	
+	}
+	if(N ~ 2) {
+		print x1;	
+		print x2;
+	}
+
+	return 0;
+}

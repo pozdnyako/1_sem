@@ -1,0 +1,18 @@
+var D;
+
+function fib(var Num) {
+	if(Num < 2) {
+		return 1;
+	}
+
+	return fib(Num-2) + fib(Num-1);
+}
+
+function main() {
+	var T;
+
+	scan T;
+	
+	print fib(T);
+	return 0;
+}

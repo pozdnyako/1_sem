@@ -1,0 +1,332 @@
+call fu4
+end
+
+lbl fu0
+rpop RAX
+push 0
+add
+rapu
+in
+rpop RAX
+push 0
+add
+rapu
+rpop RAX
+push 0
+add
+rapo
+
+ret
+
+lbl fu1
+rpop RAX
+push 0
+add
+rapu
+
+rpop RAX
+push 0
+add
+rapo
+
+push 0
+eql
+push 1
+je ifs1
+jmp ife1
+lbl ifs1
+push 0
+push 1
+sub
+ret
+
+
+lbl ife1
+push 0
+ret
+
+lbl fu2
+rpop RAX
+push 0
+add
+rapu
+rpop RAX
+push 1
+add
+rapu
+
+rpop RAX
+push 0
+add
+rapo
+
+push 0
+eql
+push 1
+je ifs2
+jmp ife2
+lbl ifs2
+
+rpop RAX
+push 1
+add
+rapo
+
+call fu1
+
+ret
+
+
+lbl ife2
+push 0
+rpop RAX
+push 1
+add
+rapo
+
+rpop RAX
+push 0
+add
+rapo
+
+div
+sub
+rpush RAA
+push 1
+ret
+
+lbl fu3
+rpop RAX
+push 0
+add
+rapu
+rpop RAX
+push 1
+add
+rapu
+rpop RAX
+push 2
+add
+rapu
+
+rpop RAX
+push 0
+add
+rapo
+
+push 0
+eql
+push 1
+je ifs3
+jmp ife3
+lbl ifs3
+
+rpop RAX
+push 1
+add
+rapo
+
+rpop RAX
+push 2
+add
+rapo
+
+call fu2
+
+ret
+
+
+lbl ife3
+
+rpop RAX
+push 1
+add
+rapo
+
+rpop RAX
+push 1
+add
+rapo
+
+mul
+push 4
+rpop RAX
+push 0
+add
+rapo
+
+mul
+rpop RAX
+push 2
+add
+rapo
+
+mul
+sub
+call fu0
+
+rpop RAX
+push 3
+add
+rapu
+
+rpop RAX
+push 3
+add
+rapo
+
+push 0
+eql
+push 1
+je ifs4
+jmp ife4
+lbl ifs4
+push 0
+rpop RAX
+push 1
+add
+rapo
+
+sub
+push 2
+div
+rpop RAX
+push 0
+add
+rapo
+
+div
+rpush RAA
+push 1
+ret
+
+
+lbl ife4
+push 0
+rpop RAX
+push 1
+add
+rapo
+
+sub
+rpop RAX
+push 3
+add
+rapo
+
+add
+push 2
+div
+rpop RAX
+push 0
+add
+rapo
+
+div
+rpush RAA
+push 0
+rpop RAX
+push 1
+add
+rapo
+
+sub
+rpop RAX
+push 3
+add
+rapo
+
+sub
+push 2
+div
+rpop RAX
+push 0
+add
+rapo
+
+div
+rpush RAB
+push 2
+ret
+
+lbl fu4
+in
+rpop RAX
+push 0
+add
+rapu
+in
+rpop RAX
+push 1
+add
+rapu
+in
+rpop RAX
+push 2
+add
+rapu
+
+rpop RAX
+push 0
+add
+rapo
+
+rpop RAX
+push 1
+add
+rapo
+
+rpop RAX
+push 2
+add
+rapo
+
+call fu3
+
+rpop RAX
+push 3
+add
+rapu
+rpop RAX
+push 3
+add
+rapo
+
+out
+
+rpop RAX
+push 3
+add
+rapo
+
+push 1
+eql
+push 1
+je ifs5
+jmp ife5
+lbl ifs5
+rpop RAA
+out
+
+lbl ife5
+
+rpop RAX
+push 3
+add
+rapo
+
+push 2
+eql
+push 1
+je ifs6
+jmp ife6
+lbl ifs6
+rpop RAA
+out
+rpop RAB
+out
+
+lbl ife6
+push 0
+ret
+

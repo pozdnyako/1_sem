@@ -1,8 +1,12 @@
 #include "info.h"
 
+#define RAM_REGISTER_CUR proc->registers[0] ///RAX
+#define RAM_REGISTER_MAX proc->registers[1] ///RAY
+
 struct Proc {
     Stack *m_stack;
     Stack *calls;
+    Stack *ram_use;
 
     long long code_size;
     char *code;
@@ -13,9 +17,9 @@ struct Proc {
 
     stack_e* ram;
 
-    static const long long STACK_SIZE = 100;
-    static const long long MAX_CALL_NUM = 100;
-    static const long long RAM_SIZE = 100;
+    static const long long STACK_SIZE = 1000;
+    static const long long MAX_CALL_NUM = 1000;
+    static const long long RAM_SIZE = 1000;
 };
 
 void ProcCtor(Proc*);

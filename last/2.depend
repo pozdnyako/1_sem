@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1544242883 source:d:\users\admin\documents\github\1_sem\1_sem\task_5\list.cpp
+	"List.h"
+
+1544243089 source:d:\users\admin\documents\github\1_sem\1_sem\task_5\main.cpp
+	"HashTable.h"
+
+1544242750 d:\users\admin\documents\github\1_sem\1_sem\task_5\list.h
+	"info.h"
+
+1542104733 d:\users\admin\documents\github\1_sem\1_sem\task_5\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<cstdlib>
+
+1544243011 source:d:\users\admin\documents\github\1_sem\1_sem\task_5\hashtable.cpp
+	"HashTable.h"
+
+1542199119 d:\users\admin\documents\github\1_sem\1_sem\task_5\hashtable.h
+	"List.h"
+
+1544243011 source:d:\users\admin\documents\github\1_sem\1_sem\last\hashtable.cpp
+	"HashTable.h"
+
+1542199119 d:\users\admin\documents\github\1_sem\1_sem\last\hashtable.h
+	"List.h"
+
+1544242750 d:\users\admin\documents\github\1_sem\1_sem\last\list.h
+	"info.h"
+
+1542104733 d:\users\admin\documents\github\1_sem\1_sem\last\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<cstdlib>
+
+1544242883 source:d:\users\admin\documents\github\1_sem\1_sem\last\list.cpp
+	"List.h"
+
+1553519690 source:d:\users\admin\documents\github\1_sem\1_sem\last\main.cpp
+	"List.h"
+

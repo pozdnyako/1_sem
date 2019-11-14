@@ -1,0 +1,127 @@
+# depslib dependency file v1.0
+1542186912 source:d:\users\admin\documents\github\1_sem\1_sem\task_5\list.cpp
+	"List.h"
+
+1542199705 source:d:\users\admin\documents\github\1_sem\1_sem\task_5\main.cpp
+	"HashTable.h"
+
+1542198273 d:\users\admin\documents\github\1_sem\1_sem\task_5\list.h
+	"info.h"
+
+1542104733 d:\users\admin\documents\github\1_sem\1_sem\task_5\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<cstdlib>
+
+1542199132 source:d:\users\admin\documents\github\1_sem\1_sem\task_5\hashtable.cpp
+	"HashTable.h"
+
+1542199119 d:\users\admin\documents\github\1_sem\1_sem\task_5\hashtable.h
+	"List.h"
+
+1544245675 source:d:\users\admin\documents\github\1_sem\1_sem\task_6\main.cpp
+	"Tree.h"
+	"RDP.h"
+
+1544240980 d:\users\admin\documents\github\1_sem\1_sem\task_6\tree.h
+	"info.h"
+
+1544237392 d:\users\admin\documents\github\1_sem\1_sem\task_6\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<cstdlib>
+
+1544245241 source:d:\users\admin\documents\github\1_sem\1_sem\task_6\tree.cpp
+	"Tree.h"
+
+1544240006 d:\users\admin\documents\github\1_sem\1_sem\task_6\rdp.h
+	"info.h"
+
+1544244714 source:d:\users\admin\documents\github\1_sem\1_sem\task_6\rdp.cpp
+	"Tree.h"
+	"RDP.h"
+
+1544244714 source:d:\users\admin\documents\github\1_sem\1_sem\task_7\rdp.cpp
+	"Tree.h"
+	"RDP.h"
+
+1544240980 d:\users\admin\documents\github\1_sem\1_sem\task_7\tree.h
+	"info.h"
+
+1544237392 d:\users\admin\documents\github\1_sem\1_sem\task_7\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<cstdlib>
+
+1544240006 d:\users\admin\documents\github\1_sem\1_sem\task_7\rdp.h
+	"info.h"
+
+1544245241 source:d:\users\admin\documents\github\1_sem\1_sem\task_7\tree.cpp
+	"Tree.h"
+
+1545224653 source:d:\users\admin\documents\github\1_sem\1_sem\task_9\main.cpp
+	"Tree.h"
+	"RDP.h"
+	"AST.h"
+
+1545220612 d:\users\admin\documents\github\1_sem\1_sem\task_9\tree.h
+	"info.h"
+
+1545190829 d:\users\admin\documents\github\1_sem\1_sem\task_9\info.h
+	<cmath>
+	<cassert>
+	<iostream>
+	<cstdio>
+	<cstring>
+	<cstdlib>
+
+1545220484 d:\users\admin\documents\github\1_sem\1_sem\task_9\rdp.h
+	"info.h"
+
+1545220701 source:d:\users\admin\documents\github\1_sem\1_sem\task_9\rdp.cpp
+	"token.h"
+	"Tree.h"
+	"RDP.h"
+
+1545220491 source:d:\users\admin\documents\github\1_sem\1_sem\task_9\tree.cpp
+	"Tree.h"
+
+1545215232 source:d:\users\admin\documents\github\1_sem\1_sem\task_9\ast.cpp
+	"Token.h"
+	"Tree.h"
+	"RDP.h"
+	"AST.h"
+
+1545212477 d:\users\admin\documents\github\1_sem\1_sem\task_9\ast.h
+	"info.h"
+
+1545120314 source:d:\users\admin\documents\github\1_sem\1_sem\task_9\token.cpp
+	"token.h"
+	"symbol.h"
+	"keywords.h"
+	"symbol.h"
+	"symbol.h"
+	"tokens_type.h"
+
+1545237155 d:\users\admin\documents\github\1_sem\1_sem\task_9\token.h
+	"info.h"
+	"tokens_type.h"
+
+1545193109 source:d:\users\admin\documents\github\1_sem\1_sem\task_9\info.cpp
+	"info.h"
+
+1545180824 d:\users\admin\documents\github\1_sem\1_sem\task_9\symbol.h
+
+1545109594 d:\users\admin\documents\github\1_sem\1_sem\task_9\tokens_type.h
+
+1545220646 d:\users\admin\documents\github\1_sem\1_sem\task_9\keywords.h
+

@@ -625,7 +625,6 @@ void NodeDelete(Node* node) {
     NodeDtor(node);
 }
 
-
 void NodeTexDumb(Node* node, FILE *file) {
     assert(node);
 

@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
     Disassembler das = {};
     Proc proc = {};
 
-    const char prog_name[60] = "factram";
+    const char prog_name[60] = "code";
     char input_path[100] = "src\\";
     char das_path[100] = "das\\";
     char exe_path[100] = "exe\\";
@@ -34,6 +34,7 @@ int main(int argc, char* argv[]) {
     strcpy(_prog_name, prog_name);
     strcat(das_path, strcat(_prog_name, ".txt"));
 
+
     printf("[OUT]\tpath to src '%s'\n", input_path);
     printf("[OUT]\tpath to exe '%s'\n", exe_path);
     printf("[OUT]\tpath to das '%s'\n", das_path);
@@ -44,20 +45,23 @@ int main(int argc, char* argv[]) {
     AssCompile(&ass);
     AssOutput(&ass, exe_path);
 
-    DasCtor(&das);
+/*    DasCtor(&das);
     DasInput(&das, exe_path);
     DasDecompile(&das);
     DasOutput(&das, das_path);
-
+*/
     ProcCtor(&proc);
     ProcInput(&proc, exe_path);
 
     ProcRun(&proc);
 
     AssDtor(&ass);
-    DasDtor(&das);
+//    DasDtor(&das);
 
     ProcDtor(&proc);
+
+    char* str;
+    scanf("%s", str);
     return 0;
 }
 

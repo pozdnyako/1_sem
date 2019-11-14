@@ -9,9 +9,9 @@ int main(int argc, char* argv[]) {
     TreeCtor(&dTree);
 
     Calc calc;
-    calc.getG("L(2*x+7*x^4)+s(5*x)");
+    calc.getG("s(x)*L(s(c(s(x^(3/2)))))");
 
-    fprintf(texout, "\\[ \\left( ");
+    fprintf(texout, "\\begin{equation} \\left( ");
     TreeTexDumb(&calc.m_tree, texout);
     fprintf(texout, "\\right) ' = ");
 
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     system("D:\\Users\\Admin\\Downloads\\graphviz-2.38\\release\\bin\\dotty.exe D:\\Users\\Admin\\Documents\\GitHub\\1_sem\\1_sem\\task_6\\out.txt");
 
     TreeTexDumb(&dTree, texout);
-    fprintf(texout, " \\]\n\\end{document}");
+    fprintf(texout, " \\end{equation}\n\\end{document}");
 
     return 0;
 }

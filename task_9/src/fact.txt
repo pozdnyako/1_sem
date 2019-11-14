@@ -1,0 +1,18 @@
+var D;
+
+function factorial(var A) {
+	if(A < 2) {
+		return 1;
+	}
+
+	return A * factorial(A-1);
+}
+
+function main() {
+	var T;
+
+	scan T;
+	
+	print factorial(T);
+	return 0;
+}

@@ -1,39 +1,39 @@
-##		MAIN		##
-	in 	
-	push 1
-	add
-	push 1
-	call f
-	rapo 2
-	out	
-	end
-#END END END END END END END END#
-#		f		#
-	lbl f
-		#stk n res
-	rapu 2
-		#stk n
-	rapu 1
-	
-	rapo 1
-	push 2
-	ja f_out
-	rapo 1
-	push -1
-	add
-		#stk n-1	
-	rapu 1
-	rapo 1
-	rapo 1
-	rapo 2
-		#stk n-1 n-1 res
-	mul
-		#stk n-1 res*n-1
-	call f
-	ret
-#END END END END END END END END#
-#
-	lbl f_out
-	ret
-#END END END END END END END END#
-
+call fu0
+end
+lbl fu0
+push 10
+rpop RAX
+push 0
+add
+rapu
+lbl whs10
+rpop RAX
+push 0
+add
+rapo
+push 0
+more
+push 1
+je whs20
+jmp whe0
+lbl whs20
+rpop RAX
+push 0
+add
+rapo
+out
+rpop RAX
+push 0
+add
+rapo
+push 1
+sub
+rpop RAX
+push 0
+add
+rapu
+jmp whs10
+lbl whe0
+push 0
+ret
+_RE>oZ̓

@@ -80,7 +80,7 @@ DEF_CMD(ADD, 3,
         )
 DEF_CMD(SUB, 4,
         {
-            PUSH((double)POP-(double)POP);
+            PUSH(-1 * ((double)POP - (double)POP));
             nxt_C
         }
         , 0, sub,
@@ -104,7 +104,7 @@ DEF_CMD(MUL, 5,
         )
 DEF_CMD(DIV, 6,
         {
-            PUSH((double)POP / (double)POP);
+            PUSH(1 / (double)POP * (double)POP); /// cause they have reverse order!!!
             nxt_C
         }
         , 0, div,
@@ -141,6 +141,7 @@ DEF_CMD(SQRT, 8,
 DEF_CMD(IN, 9,
         {
             double a = 0;
+            printf("\t\t[IN]\t");
             scanf("%Lf", &a);
             PUSH((stack_e)a);
             nxt_C
@@ -154,7 +155,7 @@ DEF_CMD(IN, 9,
         )
 DEF_CMD(OUT, 10,
         {
-            printf("%f\n", (float)POP);
+            printf("\t\t[OUT]\t------- %f -------\n", (float)POP);
             nxt_C
         }
         , 0, out,
@@ -439,7 +440,7 @@ DEF_CMD(_JE, 18,
             long long arg = 0;
             USE_ARG(arg, long long);
 
-            if(POP == POP) {
+            if((double)POP == (double)POP) {
                 proc->cp = arg;
             } else {
                 nxt_C
@@ -496,6 +497,10 @@ DEF_CMD(CALL, 20,
 
             nxt_C
             StackPush(proc->calls, proc->cp);
+
+            StackPush(proc->ram_use, RAM_REGISTER_CUR);
+            RAM_REGISTER_CUR = RAM_REGISTER_MAX;
+
             proc->cp = arg;
         }
         , 1, call,
@@ -538,6 +543,9 @@ DEF_CMD(RET, 21,
         {
             long long pos = StackPop(proc->calls);
             proc->cp = pos;
+
+            RAM_REGISTER_MAX = RAM_REGISTER_CUR;
+            RAM_REGISTER_CUR = StackPop(proc->ram_use);
         }
         , 0, ret,
         {}
@@ -548,52 +556,120 @@ DEF_CMD(RET, 21,
         )
 DEF_CMD(RAPU, 22,
         {
-            nxt_C
-            int num = 0;
-            USE_ARG(num, int);
+            int num = (int)POP;
+            stack_e val = POP;
 
-            proc->ram[num] = POP;
+            if(num >= RAM_REGISTER_MAX)
+                RAM_REGISTER_MAX = num + 1;
+
+            proc->ram[num] = (double)val;
             nxt_C
         }
-        , 1, rapu,
+        , 0, rapu,
         {
-            int num = 0;
-            sscanf(ARG_1, "%d", &num);
-            WRITE_ARG(num, int);
         }
         , NORMAL_BYTECODE,
         {
-            nxt_C
-            int num = 0;
-            READ_ARG(num, int);
-            cur_code_pos += sprintf(das->code + cur_code_pos, " %d", num);
             nxt_C
         }
         )
 DEF_CMD(RAPO, 23,
         {
-            nxt_C
-            int num = 0;
-            USE_ARG(num, int);
+            int num = (int)POP;
 
-            PUSH(proc->ram[num]);
+            if(num >= RAM_REGISTER_MAX)
+                RAM_REGISTER_MAX = num + 1;
+
+            PUSH((stack_e)proc->ram[num]);
             nxt_C
         }
-        , 1, rapo,
+        , 0, rapo,
         {
-            int num = 0;
-            sscanf(ARG_1, "%d", &num);
-            WRITE_ARG(num, int);
+
         }
         , NORMAL_BYTECODE,
         {
             nxt_C
-            int num = 0;
-            READ_ARG(num, int);
-            cur_code_pos += sprintf(das->code + cur_code_pos, " %d", num);
-            nxt_C
         }
         )
+DEF_CMD(MEOW, 24,
+        {
+            printf("meow\n");
+            nxt_C
+        }
+        , 0, meow,
+        {
+
+        }
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        })
+DEF_CMD(MORE, 25,
+        {
+            PUSH(((int)POP < (int)POP)); /// cause they have reverse order!!!
+            nxt_C
+        }
+        , 0, more,
+        {
+
+        }
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        })
+DEF_CMD(LESS, 26,
+        {
+            PUSH(((int)POP > (int)POP)); /// cause they have reverse order!!!
+            nxt_C
+        }
+        , 0, less,
+        {
+
+        }
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        })
+DEF_CMD(AND, 27,
+        {
+            PUSH(((int)POP && (int)POP));
+            nxt_C
+        }
+        , 0, and,
+        {
+
+        }
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        })
+DEF_CMD(OR, 28,
+        {
+            PUSH(((int)POP || (int)POP));
+            nxt_C
+        }
+        , 0, or,
+        {
+
+        }
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        })
+DEF_CMD(EQL, 29,
+        {
+            PUSH(((int)POP == (int)POP));
+            nxt_C
+        }
+        , 0, eql,
+        {
+
+        }
+        , NORMAL_BYTECODE,
+        {
+            nxt_C
+        })
 DEF_CMD(END, 0,
         {
             ;

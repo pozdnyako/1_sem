@@ -1,0 +1,387 @@
+# 1 "token.cpp"
+# 1 "<command-line>"
+# 1 "token.cpp"
+# 1 "token.h" 1
+
+
+class Token {
+public:
+    Token();
+    virtual ~Token();
+
+    int type;
+
+
+# 1 "tokens_type.h" 1
+
+static const int type_error = -2;;
+static const int type_end = -1;;
+static const int type_leteral = 0;;
+static const int type_id = 1;;
+static const int type_keyword = 2;;
+static const int type_separator = 3;;
+static const int type_operator = 4;;
+static const int type_comment = 5;;
+# 12 "token.h" 2
+
+
+    char* data;
+    int data_len;
+
+    static int skipIgnorSymbols(char*);
+
+    static int getToken(char*, Token*);
+
+    static int getLeteral (char*, Token*);
+    static int getId (char*, Token*);
+    static int getKeyword (char*, Token*);
+    static int getSeparator(char*, Token*);
+    static int getOperator (char*, Token*);
+    static int getComment (char*, Token*);
+
+    static int getInt(char*);
+    static int getWord(char*);
+    static int getLetter(char*);
+
+    static const int TOKEN_TYPE_NUM = 6;
+
+    int val;
+
+    void Dumb();
+};
+# 2 "token.cpp" 2
+
+Token :: Token() {
+    type = type_error;
+    data_len = 0;
+    val = 0;
+}
+
+Token :: ~Token() {
+}
+
+int Token :: skipIgnorSymbols(char* cur) {
+    char* start = cur;
+
+
+
+
+    int num = 0;
+    do{
+        num = 0;
+# 1 "symbol.h" 1
+
+if(*cur == ' ') { cur ++; num ++; }
+if(*cur == '\n') { cur ++; num ++; }
+if(*cur == '\t') { cur ++; num ++; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 22 "token.cpp" 2
+    } while(num);
+
+
+
+
+    return cur - start;
+}
+# 47 "token.cpp"
+int Token :: getToken(char* cur, Token* _token) {
+    char* start = cur;
+
+    int res[TOKEN_TYPE_NUM]; for(int i = 0; i < TOKEN_TYPE_NUM; i ++) { res[i] = 0; }
+
+    res[0] += getLeteral (cur, _token);
+    res[1] += getId (cur, _token);
+    res[2] += getKeyword (cur, _token);
+    res[3] += getSeparator(cur, _token);
+    res[4] += getOperator (cur, _token);
+    res[5] += getComment (cur, _token);
+
+    if(res[1] > 0 && res[2] > 0) {
+        if(res[2] == res[1])
+            return getKeyword(cur, _token);
+        else
+            return getId(cur, _token);
+    }
+
+    if(res[4] > 0 && res[5] > 0) {
+        return getComment(cur, _token);
+    }
+
+    for(int i = 0; i < TOKEN_TYPE_NUM; i ++) { if(res[i] > 0) return res[i]; }
+
+    return 0;
+}
+# 89 "token.cpp"
+int Token :: getLeteral(char* cur, Token* _token) {
+    char* start = cur;
+    int res = 0;
+
+    res = getInt(cur);
+    _token->val = 0; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_leteral; return res; }
+
+    return 0;
+}
+
+
+
+
+int Token :: getId(char* cur, Token* _token) {
+    char* start = cur;
+
+    int res = getWord(cur);
+    if(res) {
+        cur += res;
+
+        int delta_res = 0;
+        do{
+            delta_res = 0;
+
+            delta_res += getInt(cur);
+            delta_res += getWord(cur);
+
+            cur += delta_res;
+            res += delta_res;
+        } while(delta_res);
+    }
+
+    _token->val = 0; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_id; return res; }
+    return 0;
+}
+
+
+
+int Token :: getKeyword(char* cur, Token* _token) {
+    char* start = cur;
+
+    int res = getWord(cur);
+
+    if(res == 0)
+        return res;
+
+
+
+
+# 1 "keywords.h" 1
+if(strStartCmp(start, "Господин")) { _token->val = 0; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+if(strStartCmp(start, "пришел_в_бар")) { _token->val = 1; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+if(strStartCmp(start, "var")) { _token->val = 2; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+if(strStartCmp(start, "function")) { _token->val = 3; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+if(strStartCmp(start, "if")) { _token->val = 4; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+if(strStartCmp(start, "return")) { _token->val = 5; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+if(strStartCmp(start, "print")) { _token->val = 6; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+if(strStartCmp(start, "scan")) { _token->val = 7; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+if(strStartCmp(start, "sqrt")) { _token->val = 8; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+if(strStartCmp(start, "сколько_уже_можно")) { _token->val = 9; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_keyword; return res; } }
+# 139 "token.cpp" 2
+
+
+
+    return 0;
+}
+
+
+
+
+int Token :: getSeparator(char* cur, Token* _token) {
+    char* start = cur;
+    int res = 0;
+
+
+
+
+
+
+# 1 "symbol.h" 1
+
+
+
+
+
+if(*cur == '{') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+if(*cur == '}') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+if(*cur == '(') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+if(*cur == ')') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+if(*cur == '[') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+if(*cur == ']') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+if(*cur == '"') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+if(*cur == '\'') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+if(*cur == ';') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+if(*cur == ',') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_separator; return res; } }
+
+
+
+
+
+
+
+
+
+# 158 "token.cpp" 2
+
+
+
+
+
+    return 0;
+
+}
+
+
+
+
+int Token :: getOperator(char* cur, Token* _token) {
+    char* start = cur;
+    int res = 0;
+
+
+
+
+
+
+# 1 "symbol.h" 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(*cur == '+') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_operator; return res; } }
+if(*cur == '-') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_operator; return res; } }
+if(*cur == '*') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_operator; return res; } }
+if(*cur == '/') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_operator; return res; } }
+if(*cur == '=') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_operator; return res; } }
+if(*cur == '>') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_operator; return res; } }
+if(*cur == '<') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_operator; return res; } }
+if(*cur == '~') { _token->val = *cur; res = 1; cur++; if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_operator; return res; } }
+# 180 "token.cpp" 2
+
+
+
+
+
+    return 0;
+
+}
+
+
+
+
+int Token :: getComment(char* cur, Token* _token) {
+    char* start = cur;
+    int res = 0;
+
+    if(strStartCmp(start, "//")) {
+        cur += 2;
+        res += 2;
+
+        while(*cur != '\0' && *cur != '\n') {
+            cur ++;
+            res ++;
+        }
+
+        if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_comment; return res; }
+    }
+
+    if(strStartCmp(start, "/*")) {
+        cur += 2;
+        res += 2;
+
+        while(!strStartCmp(cur, "*/")) {
+            cur ++;
+            res ++;
+
+            if(*cur == '\0'){
+                break;
+            }
+        }
+
+        if(*cur != '\0'){
+            cur += 2;
+            res += 2;
+        }
+
+        if(res > 0) { _token->data_len = res; _token->data = start; _token->type = type_comment; return res; }
+    }
+
+    return 0;
+
+}
+
+
+
+
+int Token :: getInt(char* cur) {
+    char* start = cur;
+
+    while(*cur >= '0' && *cur <= '9'){
+        cur ++;
+    }
+
+    return cur - start;
+}
+
+int Token :: getWord(char* cur) {
+    char* start = cur;
+
+    while(getLetter(cur) || *cur == '_') {
+        cur ++;
+    }
+
+    return cur - start;
+}
+
+int Token :: getLetter(char* cur) {
+    if((*cur >= 'a' && *cur <= 'z') ||
+       (*cur >= 'A' && *cur <= 'Z') ||
+       (*cur >= 'а' && *cur <= 'я') ||
+       (*cur >= 'А' && *cur <= 'Я'))
+        return 1;
+
+    return 0;
+}
+
+
+void Token :: Dumb() {
+# 276 "token.cpp"
+# 1 "tokens_type.h" 1
+
+if(type == -2) { printf("([%9s], %4d, ", "error", val); for(int i = 0; i < data_len; i ++) { printf("%c", data[i]); } printf(")\n"); };
+if(type == -1) { printf("([%9s], %4d, ", "end", val); for(int i = 0; i < data_len; i ++) { printf("%c", data[i]); } printf(")\n"); };
+if(type == 0) { printf("([%9s], %4d, ", "leteral", val); for(int i = 0; i < data_len; i ++) { printf("%c", data[i]); } printf(")\n"); };
+if(type == 1) { printf("([%9s], %4d, ", "id", val); for(int i = 0; i < data_len; i ++) { printf("%c", data[i]); } printf(")\n"); };
+if(type == 2) { printf("([%9s], %4d, ", "keyword", val); for(int i = 0; i < data_len; i ++) { printf("%c", data[i]); } printf(")\n"); };
+if(type == 3) { printf("([%9s], %4d, ", "separator", val); for(int i = 0; i < data_len; i ++) { printf("%c", data[i]); } printf(")\n"); };
+if(type == 4) { printf("([%9s], %4d, ", "operator", val); for(int i = 0; i < data_len; i ++) { printf("%c", data[i]); } printf(")\n"); };
+if(type == 5) { printf("([%9s], %4d, ", "comment", val); for(int i = 0; i < data_len; i ++) { printf("%c", data[i]); } printf(")\n"); };
+# 277 "token.cpp" 2
+
+}

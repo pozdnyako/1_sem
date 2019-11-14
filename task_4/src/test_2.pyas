@@ -1,0 +1,38 @@
+call fu1
+end
+
+lbl fu0
+rpush RAA
+
+rpop RAA
+push 2
+less
+push 1
+je ifs1
+jmp ife1
+lbl ifs1
+push 1
+ret
+
+
+lbl ife1
+rpop RAA
+
+rpop RAA
+push 1
+sub
+call fu0
+
+mul
+ret
+
+lbl fu1
+
+push 5
+call fu0
+
+rpush RAB
+rpop RAB
+out 
+push 0
+ret

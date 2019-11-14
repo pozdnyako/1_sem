@@ -58,7 +58,7 @@ enum Comamnds {     // Exmaple 1
 enum Registers {
     #define DEF_REG(name, num) CMD_REG_##name = num,
     #include "registers.h"
-    CMD_REG_MAX = 5
+    CMD_REG_MAX = 6
     #undef DEF_REG
 };
 

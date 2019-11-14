@@ -1,0 +1,39 @@
+call main_start
+end
+
+lbl fact_start
+rpush RAA
+
+rpop RAA
+push 2
+less
+push 1
+je start_if
+jmp end_if
+lbl start_if
+push 1
+ret
+
+
+lbl end_if
+rpop RAA
+
+rpop RAA
+push 1
+sub
+call fact_start
+
+mul
+ret
+
+lbl main_start
+
+push 6
+call fact_start
+
+rpush RAB
+
+rpop RAB
+out
+push 0
+ret

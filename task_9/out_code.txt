@@ -1,0 +1,64 @@
+Code:{
+call fu1
+end
+
+lbl fu0
+rpop RAX
+push 0
+add
+rapu
+
+rpop RAX
+push 0
+add
+rapo
+
+push 2
+less
+push 1
+je ifs1
+jmp ife1
+lbl ifs1
+push 1
+ret
+
+
+lbl ife1
+rpop RAX
+push 0
+add
+rapo
+
+
+rpop RAX
+push 0
+add
+rapo
+
+push 1
+sub
+call fu0
+
+mul
+ret
+
+lbl fu1
+rpop RAX
+push 0
+add
+rapo
+
+in
+
+rpop RAX
+push 0
+add
+rapo
+
+call fu0
+
+out
+push 0
+ret
+
+}
