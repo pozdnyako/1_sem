@@ -1,1 +1,1 @@
-this is my git. Thanks for watching.
+this is my git. Thanks for watching!
