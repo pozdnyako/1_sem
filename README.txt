@@ -1,1 +1,1 @@
-this is my git. Thanks for watching!
+My 1 semester of programming at MIPT
